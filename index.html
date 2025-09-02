@@ -3,55 +3,64 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>smart learning hub - مركز التميز التعليمي</title>
+    <title>أكاديمية المستقبل - التعليم المتميز</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;500;700;800;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;500;700;900&family=Amiri:wght@400;700&display=swap" rel="stylesheet">
     <script>
         tailwind.config = {
             theme: {
                 extend: {
+                    fontFamily: {
+                        'arabic': ['Tajawal', 'sans-serif'],
+                        'arabic-serif': ['Amiri', 'serif'],
+                    },
                     colors: {
                         primary: {
-                            50: '#f0f9ff',
-                            100: '#e0f2fe',
-                            500: '#0ea5e9',
-                            600: '#0284c7',
-                            700: '#0369a1',
-                            800: '#075985',
-                            900: '#0c4a6e',
+                            50: '#eff6ff',
+                            100: '#dbeafe',
+                            200: '#bfdbfe',
+                            300: '#93c5fd',
+                            400: '#60a5fa',
+                            500: '#3b82f6',
+                            600: '#2563eb',
+                            700: '#1d4ed8',
+                            800: '#1e40af',
+                            900: '#1e3a8a',
                         },
                         secondary: {
-                            50: '#f0fdf4',
-                            100: '#dcfce7',
-                            500: '#22c55e',
-                            600: '#16a34a',
-                            700: '#15803d',
-                            800: '#166534',
-                            900: '#14532d',
+                            50: '#f0fdfa',
+                            100: '#ccfbf1',
+                            200: '#99f6e4',
+                            300: '#5eead4',
+                            400: '#2dd4bf',
+                            500: '#14b8a6',
+                            600: '#0d9488',
+                            700: '#0f766e',
+                            800: '#115e59',
+                            900: '#134e4a',
                         },
                         accent: {
-                            50: '#fffbeb',
-                            100: '#fef3c7',
-                            500: '#f59e0b',
-                            600: '#d97706',
-                            700: '#b45309',
-                            800: '#92400e',
-                            900: '#78350f',
-                        },
-                        dark: '#1e293b',
-                        light: '#f8fafc'
-                    },
-                    fontFamily: {
-                        'tajawal': ['Tajawal', 'sans-serif']
+                            50: '#fef7ff',
+                            100: '#fceeff',
+                            200: '#f8daff',
+                            300: '#f2b8ff',
+                            400: '#e879ff',
+                            500: '#d946ef',
+                            600: '#c026d3',
+                            700: '#a21caf',
+                            800: '#86198f',
+                            900: '#701a75',
+                        }
                     },
                     animation: {
-                        'fade-in': 'fadeIn 0.6s ease-out',
-                        'slide-up': 'slideUp 0.7s ease-out',
-                        'slide-down': 'slideDown 0.7s ease-out',
-                        'bounce-slow': 'bounce 3s infinite',
-                        'pulse-slow': 'pulse 4s infinite',
-                        'float': 'float 6s ease-in-out infinite'
+                        'fade-in': 'fadeIn 0.8s ease-out',
+                        'slide-up': 'slideUp 0.8s ease-out',
+                        'slide-down': 'slideDown 0.8s ease-out',
+                        'slide-right': 'slideRight 0.8s ease-out',
+                        'scale-in': 'scaleIn 0.6s ease-out',
+                        'float': 'float 6s ease-in-out infinite',
+                        'pulse-slow': 'pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+                        'gradient': 'gradient 8s ease infinite',
                     },
                     keyframes: {
                         fadeIn: {
@@ -59,16 +68,28 @@
                             '100%': { opacity: '1' }
                         },
                         slideUp: {
-                            '0%': { transform: 'translateY(20px)', opacity: '0' },
-                            '100%': { transform: 'translateY(0)', opacity: '1' }
+                            '0%': { opacity: '0', transform: 'translateY(30px)' },
+                            '100%': { opacity: '1', transform: 'translateY(0)' }
                         },
                         slideDown: {
-                            '0%': { transform: 'translateY(-20px)', opacity: '0' },
-                            '100%': { transform: 'translateY(0)', opacity: '1' }
+                            '0%': { opacity: '0', transform: 'translateY(-30px)' },
+                            '100%': { opacity: '1', transform: 'translateY(0)' }
+                        },
+                        slideRight: {
+                            '0%': { opacity: '0', transform: 'translateX(-30px)' },
+                            '100%': { opacity: '1', transform: 'translateX(0)' }
+                        },
+                        scaleIn: {
+                            '0%': { opacity: '0', transform: 'scale(0.9)' },
+                            '100%': { opacity: '1', transform: 'scale(1)' }
                         },
                         float: {
-                            '0%, 100%': { transform: 'translateY(0)' },
-                            '50%': { transform: 'translateY(-10px)' }
+                            '0%, 100%': { transform: 'translateY(0px)' },
+                            '50%': { transform: 'translateY(-20px)' }
+                        },
+                        gradient: {
+                            '0%, 100%': { backgroundPosition: '0% 50%' },
+                            '50%': { backgroundPosition: '100% 50%' }
                         }
                     }
                 }
@@ -76,427 +97,605 @@
         }
     </script>
     <style>
-        body {
+        * {
             font-family: 'Tajawal', sans-serif;
+        }
+        
+        .gradient-bg {
+            background: linear-gradient(-45deg, #667eea, #764ba2, #f093fb, #f5576c);
+            background-size: 400% 400%;
+            animation: gradient 15s ease infinite;
+        }
+        
+        .glass-effect {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        
+        .card-hover {
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+        
+        .card-hover:hover {
+            transform: translateY(-15px) scale(1.02);
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+        }
+        
+        .btn-premium {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             transition: all 0.3s ease;
-            scroll-behavior: smooth;
-        }
-        .hero-pattern {
-            background: linear-gradient(135deg, rgba(14, 165, 233, 0.85) 0%, rgba(34, 197, 94, 0.85) 100%), url('https://images.unsplash.com/photo-1523050854058-8df90110c9f1?ixlib=rb-4.0.3&auto=format&fit=crop&w=1600&q=80');
-            background-size: cover;
-            background-position: center;
-            background-attachment: fixed;
-        }
-        .course-card {
-            transition: all 0.4s ease;
+            position: relative;
             overflow: hidden;
         }
-        .course-card:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        
+        .btn-premium::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+            transition: left 0.5s;
         }
-        .course-image {
-            transition: transform 0.5s ease;
+        
+        .btn-premium:hover::before {
+            left: 100%;
         }
-        .course-card:hover .course-image {
-            transform: scale(1.05);
+        
+        .btn-premium:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 15px 35px rgba(102, 126, 234, 0.4);
         }
-        .modal {
-            transition: all 0.3s ease;
-        }
-        .floating-element {
-            animation: float 6s ease-in-out infinite;
-        }
-        .stat-card {
-            transition: all 0.3s ease;
-        }
-        .stat-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
-        }
-        .gradient-text {
-            background: linear-gradient(135deg, #0ea5e9 0%, #22c55e 100%);
+        
+        .text-gradient {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
+            background-clip: text;
         }
+        
+        .parallax {
+            transform: translateZ(0);
+            will-change: transform;
+        }
+        
+        .modal-backdrop {
+            backdrop-filter: blur(8px);
+            background: rgba(0, 0, 0, 0.6);
+        }
+        
+        .course-icon {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%);
+            background-size: 200% 200%;
+            animation: gradient 4s ease infinite;
+        }
+        
+        .stats-counter {
+            background: linear-gradient(135deg, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0.05) 100%);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255,255,255,0.1);
+        }
+        
         .section-divider {
-            height: 1px;
-            background: linear-gradient(90deg, transparent 0%, #0ea5e9 50%, transparent 100%);
+            background: linear-gradient(90deg, transparent, #667eea, transparent);
+            height: 2px;
+            margin: 4rem 0;
         }
-        .testimonial-card {
-            transition: all 0.3s ease;
+        
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
-        .testimonial-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+        
+        .animate-on-scroll {
+            opacity: 0;
+            animation: fadeInUp 0.8s ease forwards;
         }
-        .navbar-shadow {
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
-        }
-        .btn-primary {
-            background: linear-gradient(135deg, #0ea5e9 0%, #22c55e 100%);
-            transition: all 0.3s ease;
-        }
-        .btn-primary:hover {
-            background: linear-gradient(135deg, #0284c7 0%, #16a34a 100%);
-            transform: translateY(-2px);
-            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
-        }
-        .btn-accent {
-            background: linear-gradient(135deg, #f59e0b 0%, #ec4899 100%);
-            transition: all 0.3s ease;
-        }
-        .btn-accent:hover {
-            background: linear-gradient(135deg, #d97706 0%, #db2777 100%);
-            transform: translateY(-2px);
-            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
-        }
-        .feature-icon {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            width: 70px;
-            height: 70px;
-            border-radius: 50%;
-            background: linear-gradient(135deg, #0ea5e9 0%, #22c55e 100%);
-            margin-bottom: 1rem;
-            transition: all 0.3s ease;
-        }
-        .feature-item:hover .feature-icon {
-            transform: scale(1.1) rotate(5deg);
-        }
-        ::selection {
-            background-color: rgba(14, 165, 233, 0.3);
-        }
-        .scroll-top {
-            display: none;
-            position: fixed;
-            bottom: 2rem;
-            left: 2rem;
-            z-index: 1000;
-            width: 50px;
-            height: 50px;
-            border-radius: 50%;
-            background: linear-gradient(135deg, #0ea5e9 0%, #22c55e 100%);
-            color: white;
-            align-items: center;
-            justify-content: center;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-            transition: all 0.3s ease;
-        }
-        .scroll-top:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
-        }
+        
+        .animate-delay-1 { animation-delay: 0.1s; }
+        .animate-delay-2 { animation-delay: 0.2s; }
+        .animate-delay-3 { animation-delay: 0.3s; }
+        .animate-delay-4 { animation-delay: 0.4s; }
     </style>
 </head>
-<body class="bg-light text-dark font-tajawal">
-    <!-- Scroll to top button -->
-    <a href="#" class="scroll-top" id="scroll-top">
-        <i class="fas fa-arrow-up text-xl"></i>
-    </a>
-
-    <!-- Header -->
-    <header class="bg-white fixed w-full z-50 navbar-shadow">
-        <div class="container mx-auto px-4 py-3 flex justify-between items-center">
-            <div class="flex items-center">
-                <div class="h-12 w-12 rounded-lg bg-gradient-to-br from-primary-500 to-secondary-500 flex items-center justify-center text-white font-bold text-xl shadow-md">
-                    <i class="fas fa-graduation-cap"></i>
+<body class="font-arabic bg-gray-50 overflow-x-hidden">
+    <!-- Navigation -->
+    <nav class="fixed top-0 w-full z-50 transition-all duration-500" id="navbar">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-20">
+                <div class="flex items-center space-x-4 space-x-reverse">
+                    <div class="w-12 h-12 bg-gradient-to-r from-primary-500 to-secondary-500 rounded-xl flex items-center justify-center shadow-lg">
+                        <span class="text-white font-bold text-xl">أ</span>
+                    </div>
+                    <div>
+                        <h1 class="text-xl font-bold text-white">أكاديمية المستقبل</h1>
+                        <p class="text-sm text-gray-200">التعليم المتميز</p>
+                    </div>
                 </div>
-                <span class="mr-3 text-xl font-black text-primary-800">smart learning hub</span>
-            </div>
-            
-            <nav class="hidden lg:flex space-x-8 space-x-reverse">
-                <a href="#" class="text-primary-700 font-medium hover:text-primary-500 transition relative py-2 group">
-                    الرئيسية
-                    <span class="absolute bottom-0 right-0 w-0 h-0.5 bg-primary-500 transition-all group-hover:w-full"></span>
-                </a>
-                <a href="#courses" class="text-dark font-medium hover:text-primary-500 transition relative py-2 group">
-                    الدورات
-                    <span class="absolute bottom-0 right-0 w-0 h-0.5 bg-primary-500 transition-all group-hover:w-full"></span>
-                </a>
-                <a href="#about" class="text-dark font-medium hover:text-primary-500 transition relative py-2 group">
-                    عن المدرسة
-                    <span class="absolute bottom-0 right-0 w-0 h-0.5 bg-primary-500 transition-all group-hover:w-full"></span>
-                </a>
-                <a href="#testimonials" class="text-dark font-medium hover:text-primary-500 transition relative py-2 group">
-                    آراء العملاء
-                    <span class="absolute bottom-0 right-0 w-0 h-0.5 bg-primary-500 transition-all group-hover:w-full"></span>
-                </a>
-                <a href="#contact" class="text-dark font-medium hover:text-primary-500 transition relative py-2 group">
-                    اتصل بنا
-                    <span class="absolute bottom-0 right-0 w-0 h-0.5 bg-primary-500 transition-all group-hover:w-full"></span>
-                </a>
-            </nav>
-            
-            <div class="flex items-center space-x-4 space-x-reverse">
-                <button class="lg:hidden text-primary-700" id="mobile-menu-button">
-                    <i class="fas fa-bars text-2xl"></i>
-                </button>
-                <button class="hidden md:flex items-center bg-primary-500 hover:bg-primary-600 text-white font-medium py-2 px-5 rounded-lg transition transform hover:scale-105 shadow-md" id="header-register-btn">
-                    <i class="fas fa-user-plus ml-2"></i>
-                    سجل الآن
+                
+                <div class="hidden md:flex items-center space-x-8 space-x-reverse">
+                    <a href="#home" class="text-white hover:text-secondary-300 transition-colors duration-300 font-medium">الرئيسية</a>
+                    <a href="#courses" class="text-white hover:text-secondary-300 transition-colors duration-300 font-medium">الدورات</a>
+                    <a href="#about" class="text-white hover:text-secondary-300 transition-colors duration-300 font-medium">من نحن</a>
+                    <a href="#contact" class="text-white hover:text-secondary-300 transition-colors duration-300 font-medium">تواصل معنا</a>
+                    <button onclick="openModal()" class="btn-premium text-white px-6 py-3 rounded-full font-semibold">
+                        سجل الآن
+                    </button>
+                </div>
+                
+                <button id="menu-toggle" class="md:hidden text-white">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                    </svg>
                 </button>
             </div>
         </div>
         
         <!-- Mobile Menu -->
-        <div class="hidden lg:hidden bg-white py-4 px-4 border-t border-gray-100" id="mobile-menu">
-            <a href="#" class="block py-3 px-4 hover:bg-primary-50 rounded-lg transition text-primary-700 font-medium">
-                <i class="fas fa-home ml-2 text-primary-500"></i>
-                الرئيسية
-            </a>
-            <a href="#courses" class="block py-3 px-4 hover:bg-primary-50 rounded-lg transition text-dark font-medium">
-                <i class="fas fa-book ml-2 text-primary-500"></i>
-                الدورات
-            </a>
-            <a href="#about" class="block py-3 px-4 hover:bg-primary-50 rounded-lg transition text-dark font-medium">
-                <i class="fas fa-info-circle ml-2 text-primary-500"></i>
-                عن المدرسة
-            </a>
-            <a href="#testimonials" class="block py-3 px-4 hover:bg-primary-50 rounded-lg transition text-dark font-medium">
-                <i class="fas fa-comments ml-2 text-primary-500"></i>
-                آراء العملاء
-            </a>
-            <a href="#contact" class="block py-3 px-4 hover:bg-primary-50 rounded-lg transition text-dark font-medium">
-                <i class="fas fa-phone ml-2 text-primary-500"></i>
-                اتصل بنا
-            </a>
-            <div class="mt-4 pt-4 border-t border-gray-100">
-                <button class="w-full flex items-center justify-center bg-primary-500 hover:bg-primary-600 text-white font-medium py-2 px-5 rounded-lg transition shadow-md" id="mobile-register-btn">
-                    <i class="fas fa-user-plus ml-2"></i>
+        <div id="mobile-menu" class="hidden md:hidden glass-effect">
+            <div class="px-4 pt-2 pb-6 space-y-4">
+                <a href="#home" class="block text-white hover:text-secondary-300 transition-colors duration-300 py-2">الرئيسية</a>
+                <a href="#courses" class="block text-white hover:text-secondary-300 transition-colors duration-300 py-2">الدورات</a>
+                <a href="#about" class="block text-white hover:text-secondary-300 transition-colors duration-300 py-2">من نحن</a>
+                <a href="#contact" class="block text-white hover:text-secondary-300 transition-colors duration-300 py-2">تواصل معنا</a>
+                <button onclick="openModal()" class="w-full btn-premium text-white px-6 py-3 rounded-full font-semibold mt-4">
                     سجل الآن
                 </button>
             </div>
         </div>
-    </header>
+    </nav>
 
     <!-- Hero Section -->
-    <section class="hero-pattern pt-32 pb-24 text-white">
-        <div class="container mx-auto px-4">
-            <div class="flex flex-col md:flex-row items-center">
-                <div class="md:w-1/2 mb-10 md:mb-0 animate-slide-up">
-                    <h1 class="text-4xl md:text-5xl lg:text-6xl font-black mb-6 leading-tight">
-                        مستقبل مشرق begins with <span class="text-accent-500">تعليم متميز</span>
-                    </h1>
-                    <p class="text-xl md:text-2xl mb-8 opacity-95">
-                        نقدم أفضل البرامج التعليمية لتطوير مهارات الطلاب من جميع الأعمار في مختلف المجالات الأكاديمية والتربوية.
-                    </p>
-                    <div class="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4 sm:space-x-reverse">
-                        <button class="btn-primary py-4 px-8 rounded-lg text-lg font-bold shadow-lg" id="hero-register-btn">
-                            ابدأ رحلتك التعليمية الآن
-                        </button>
-                        <button class="bg-white bg-opacity-20 hover:bg-opacity-30 text-white py-4 px-8 rounded-lg text-lg font-bold transition shadow-lg border border-white border-opacity-30">
-                            <i class="fas fa-play-circle ml-2"></i>
-                            شاهد الفيديو
-                        </button>
-                    </div>
+    <section id="home" class="relative min-h-screen flex items-center justify-center overflow-hidden">
+        <div class="absolute inset-0 gradient-bg"></div>
+        
+        <!-- Floating Elements -->
+        <div class="absolute inset-0 overflow-hidden">
+            <div class="absolute top-20 right-20 w-32 h-32 bg-white/10 rounded-full animate-float"></div>
+            <div class="absolute bottom-20 left-20 w-24 h-24 bg-white/10 rounded-full animate-float" style="animation-delay: -2s;"></div>
+            <div class="absolute top-1/2 left-1/4 w-16 h-16 bg-white/10 rounded-full animate-float" style="animation-delay: -4s;"></div>
+        </div>
+        
+        <div class="relative z-10 text-center text-white px-4 max-w-6xl mx-auto">
+            <div class="animate-slide-down">
+                <h1 class="text-5xl md:text-7xl font-black mb-6 leading-tight">
+                    مرحباً بكم في
+                    <span class="block text-gradient bg-gradient-to-r from-yellow-300 to-orange-300 bg-clip-text text-transparent">
+                        أكاديمية المستقبل
+                    </span>
+                </h1>
+            </div>
+            
+            <div class="animate-slide-up animate-delay-2">
+                <p class="text-xl md:text-2xl mb-8 text-gray-100 max-w-3xl mx-auto leading-relaxed">
+                    نحن نقدم تعليماً متميزاً ومبتكراً يهدف إلى تطوير قدرات الطلاب في مختلف المجالات التعليمية والمهنية
+                </p>
+            </div>
+            
+            <div class="animate-scale-in animate-delay-3 flex flex-col sm:flex-row gap-4 justify-center items-center">
+                <button onclick="openModal()" class="btn-premium text-white px-10 py-4 rounded-full text-lg font-bold shadow-2xl">
+                    ابدأ رحلتك التعليمية
+                </button>
+                <button onclick="document.getElementById('courses').scrollIntoView({behavior: 'smooth'})" class="glass-effect text-white px-10 py-4 rounded-full text-lg font-semibold hover:bg-white/20 transition-all duration-300">
+                    استكشف الدورات
+                </button>
+            </div>
+            
+            <!-- Stats -->
+            <div class="mt-16 grid grid-cols-2 md:grid-cols-4 gap-6 animate-fade-in animate-delay-4">
+                <div class="stats-counter rounded-2xl p-6 text-center">
+                    <div class="text-3xl font-bold mb-2">500+</div>
+                    <div class="text-sm text-gray-200">طالب متخرج</div>
                 </div>
-                <div class="md:w-1/2 flex justify-center animate-float">
-                    <div class="relative">
-                        <div class="absolute -top-6 -right-6 w-32 h-32 bg-accent-500 rounded-full opacity-20"></div>
-                        <div class="absolute -bottom-6 -left-6 w-28 h-28 bg-primary-500 rounded-full opacity-20"></div>
-                        <img src="https://images.unsplash.com/photo-1523240795612-9a054b0db644?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="طلاب يدرسون" class="relative z-10 rounded-2xl shadow-2xl w-full max-w-md">
-                    </div>
+                <div class="stats-counter rounded-2xl p-6 text-center">
+                    <div class="text-3xl font-bold mb-2">15+</div>
+                    <div class="text-sm text-gray-200">دورة تدريبية</div>
+                </div>
+                <div class="stats-counter rounded-2xl p-6 text-center">
+                    <div class="text-3xl font-bold mb-2">98%</div>
+                    <div class="text-sm text-gray-200">معدل النجاح</div>
+                </div>
+                <div class="stats-counter rounded-2xl p-6 text-center">
+                    <div class="text-3xl font-bold mb-2">10+</div>
+                    <div class="text-sm text-gray-200">سنوات خبرة</div>
                 </div>
             </div>
         </div>
-    </section>
-
-    <!-- Stats Section -->
-    <section class="py-12 bg-gradient-to-r from-primary-50 to-secondary-50">
-        <div class="container mx-auto px-4">
-            <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
-                <div class="stat-card bg-white rounded-xl p-6 text-center shadow-md">
-                    <div class="text-4xl font-black text-primary-600 mb-2">+500</div>
-                    <div class="text-dark font-medium">طالب مسجل</div>
-                </div>
-                <div class="stat-card bg-white rounded-xl p-6 text-center shadow-md">
-                    <div class="text-4xl font-black text-primary-600 mb-2">+20</div>
-                    <div class="text-dark font-medium">مدرب محترف</div>
-                </div>
-                <div class="stat-card bg-white rounded-xl p-6 text-center shadow-md">
-                    <div class="text-4xl font-black text-primary-600 mb-2">+15</div>
-                    <div class="text-dark font-medium">برنامج تعليمي</div>
-                </div>
-                <div class="stat-card bg-white rounded-xl p-6 text-center shadow-md">
-                    <div class="text-4xl font-black text-primary-600 mb-2">+95%</div>
-                    <div class="text-dark font-medium">رضا العملاء</div>
-                </div>
-            </div>
+        
+        <!-- Scroll Indicator -->
+        <div class="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
+            <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"></path>
+            </svg>
         </div>
     </section>
 
     <!-- Courses Section -->
-    <section id="courses" class="py-16 bg-white">
-        <div class="container mx-auto px-4">
-            <div class="text-center max-w-3xl mx-auto mb-16">
-                <h2 class="text-3xl md:text-4xl font-black mb-6 text-dark">برامجنا <span class="gradient-text">التعليمية</span></h2>
-                <p class="text-lg text-gray-600">نقدم مجموعة متنوعة من البرامج التعليمية المصممة خصيصًا لتلبية احتياجات الطلاب بمختلف أعمارهم وقدراتهم.</p>
-                <div class="section-divider mt-8"></div>
+    <section id="courses" class="py-20 bg-gradient-to-br from-gray-50 to-blue-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl md:text-5xl font-black text-gray-800 mb-6">
+                    دوراتنا <span class="text-gradient">المتميزة</span>
+                </h2>
+                <p class="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
+                    اكتشف مجموعة واسعة من البرامج التعليمية المصممة خصيصاً لتطوير مهاراتك وتحقيق أهدافك
+                </p>
+                <div class="section-divider"></div>
             </div>
             
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                <!-- Language Course -->
-                <div class="course-card bg-white rounded-2xl shadow-lg overflow-hidden border border-gray-100">
-                    <div class="overflow-hidden">
-                        <img src="https://images.unsplash.com/photo-1576086213369-97a306d36557?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="دورات اللغة" class="w-full h-48 object-cover course-image">
-                    </div>
-                    <div class="p-6">
-                        <div class="flex items-center mb-4">
-                            <div class="bg-primary-100 text-primary-700 py-1 px-3 rounded-full text-sm font-medium">
-                                <i class="fas fa-language ml-2"></i>
-                                لغة
-                            </div>
-                            <div class="mr-auto text-accent-600 font-bold">
-                                250 DA
-                            </div>
+                <!-- Language Support Course -->
+                <div class="course-card card-hover bg-white rounded-3xl overflow-hidden shadow-xl">
+                    <div class="relative h-64 bg-gradient-to-br from-blue-400 to-blue-600 flex items-center justify-center">
+                        <div class="course-icon w-20 h-20 rounded-full flex items-center justify-center">
+                            <svg class="w-10 h-10 text-white" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M18 13V5a2 2 0 00-2-2H4a2 2 0 00-2 2v8a2 2 0 002 2h3l3 3 3-3h3a2 2 0 002-2zM5 7a1 1 0 011-1h8a1 1 0 110 2H6a1 1 0 01-1-1zm1 3a1 1 0 100 2h3a1 1 0 100-2H6z" clip-rule="evenodd"></path>
+                            </svg>
                         </div>
-                        <h3 class="text-xl font-black mb-3 text-dark">دورات اللغة</h3>
-                        <p class="text-gray-600 mb-4">برامج متكاملة لتعزيز مهارات اللغة العربية والإنجليزية للطلاب من جميع الأعمار بمحتوى تفاعلي وشيق.</p>
-                        <div class="flex justify-between items-center">
-                            <button class="course-register-btn btn-primary py-2 px-5 rounded-lg text-white font-medium text-sm">
-                                سجل الآن
-                            </button>
-                            <div class="flex items-center text-yellow-400">
-                                <i class="fas fa-star"></i>
-                                <span class="mr-1 text-gray-600 font-medium">4.9</span>
-                            </div>
+                        <div class="absolute top-4 right-4 bg-white/20 backdrop-blur-sm rounded-full px-3 py-1 text-white text-sm font-semibold">
+                            جديد
                         </div>
                     </div>
-                </div>
-                
-                <!-- Soroban Course -->
-                <div class="course-card bg-white rounded-2xl shadow-lg overflow-hidden border border-gray-100">
-                    <div class="overflow-hidden">
-                        <img src="https://images.unsplash.com/photo-1596495578066-467a432a1d84?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="السوروبان" class="w-full h-48 object-cover course-image">
-                    </div>
-                    <div class="p-6">
-                        <div class="flex items-center mb-4">
-                            <div class="bg-secondary-100 text-secondary-700 py-1 px-3 rounded-full text-sm font-medium">
-                                <i class="fas fa-calculator ml-2"></i>
-                                حساب
-                            </div>
-                            <div class="mr-auto text-accent-600 font-bold">
-                                300 DA
+                    <div class="p-8">
+                        <h3 class="text-2xl font-bold text-gray-800 mb-4">دعم اللغة</h3>
+                        <p class="text-gray-600 mb-6 leading-relaxed">
+                            برامج متخصصة لتقوية المهارات اللغوية وتطوير القدرات التواصلية للأطفال والكبار
+                        </p>
+                        <div class="flex items-center justify-between mb-6">
+                            <span class="text-sm text-gray-500">الأطفال والكبار</span>
+                            <div class="flex items-center space-x-1 space-x-reverse">
+                                <svg class="w-4 h-4 text-yellow-400" fill="currentColor" viewBox="0 0 20 20">
+                                    <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path>
+                                </svg>
+                                <span class="text-sm text-gray-500">4.9</span>
                             </div>
                         </div>
-                        <h3 class="text-xl font-black mb-3 text-dark">السوروبان</h3>
-                        <p class="text-gray-600 mb-4">تطوير مهارات الحساب الذهني وتعزيز التركيز والذاكرة لدى الأطفال باستخدام العداد الياباني (سوروبان).</p>
-                        <div class="flex justify-between items-center">
-                            <button class="course-register-btn btn-primary py-2 px-5 rounded-lg text-white font-medium text-sm">
-                                سجل الآن
-                            </button>
-                            <div class="flex items-center text-yellow-400">
-                                <i class="fas fa-star"></i>
-                                <span class="mr-1 text-gray-600 font-medium">4.8</span>
-                            </div>
-                        </div>
+                        <button onclick="openModal('دعم اللغة')" class="w-full btn-premium text-white py-4 rounded-2xl font-bold text-lg">
+                            سجل الآن
+                        </button>
                     </div>
                 </div>
-                
-                <!-- Handwriting Course -->
-                <div class="course-card bg-white rounded-2xl shadow-lg overflow-hidden border border-gray-100">
-                    <div class="overflow-hidden">
-                        <img src="https://images.unsplash.com/photo-1585837140746-5d5d615e3281?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="تحسين الخط" class="w-full h-48 object-cover course-image">
-                    </div>
-                    <div class="p-6">
-                        <div class="flex items-center mb-4">
-                            <div class="bg-accent-100 text-accent-700 py-1 px-3 rounded-full text-sm font-medium">
-                                <i class="fas fa-pen-nib ml-2"></i>
-                                خط
-                            </div>
-                            <div class="mr-auto text-accent-600 font-bold">
-                                200 DA
-                            </div>
-                        </div>
-                        <h3 class="text-xl font-black mb-3 text-dark">تحسين الخط</h3>
-                        <p class="text-gray-600 mb-4">دورات متخصصة لتحسين خط اليد للطلاب باستخدام أحدث الأساليب التعليمية مع معلمين متخصصين.</p>
-                        <div class="flex justify-between items-center">
-                            <button class="course-register-btn btn-primary py-2 px-5 rounded-lg text-white font-medium text-sm">
-                                سجل الآن
-                            </button>
-                            <div class="flex items-center text-yellow-400">
-                                <i class="fas fa-star"></i>
-                                <span class="mr-1 text-gray-600 font-medium">4.7</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
 
-            <div class="text-center mt-12">
-                <button class="bg-gray-100 hover:bg-gray-200 text-dark font-medium py-3 px-8 rounded-lg transition">
-                    عرض جميع الدورات
-                    <i class="fas fa-arrow-left ml-2"></i>
-                </button>
+                <!-- Soroban Course -->
+                <div class="course-card card-hover bg-white rounded-3xl overflow-hidden shadow-xl">
+                    <div class="relative h-64 bg-gradient-to-br from-green-400 to-emerald-600 flex items-center justify-center">
+                        <div class="course-icon w-20 h-20 rounded-full flex items-center justify-center">
+                            <svg class="w-10 h-10 text-white" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M6 2a2 2 0 00-2 2v12a2 2 0 002 2h8a2 2 0 002-2V4a2 2 0 00-2-2H6zm1 2a1 1 0 000 2h6a1 1 0 100-2H7zm6 7a1 1 0 011 1v3a1 1 0 11-2 0v-3a1 1 0 011-1zm-3 3a1 1 0 100 2h.01a1 1 0 100-2H10zm-4 1a1 1 0 011-1h.01a1 1 0 110 2H7a1 1 0 01-1-1zm1-4a1 1 0 100 2h.01a1 1 0 100-2H7zm2 0a1 1 0 100 2h.01a1 1 0 100-2H9zm2 0a1 1 0 100 2h.01a1 1 0 100-2H11zm2 0a1 1 0 100 2h.01a1 1 0 100-2H13z" clip-rule="evenodd"></path>
+                            </svg>
+                        </div>
+                        <div class="absolute top-4 right-4 bg-white/20 backdrop-blur-sm rounded-full px-3 py-1 text-white text-sm font-semibold">
+                            مميز
+                        </div>
+                    </div>
+                    <div class="p-8">
+                        <h3 class="text-2xl font-bold text-gray-800 mb-4">السوروبان</h3>
+                        <p class="text-gray-600 mb-6 leading-relaxed">
+                            تعلم فن الحساب الذهني باستخدام المعداد الياباني وتطوير القدرات الرياضية للأطفال
+                        </p>
+                        <div class="flex items-center justify-between mb-6">
+                            <span class="text-sm text-gray-500">الأطفال (6-14 سنة)</span>
+                            <div class="flex items-center space-x-1 space-x-reverse">
+                                <svg class="w-4 h-4 text-yellow-400" fill="currentColor" viewBox="0 0 20 20">
+                                    <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path>
+                                </svg>
+                                <span class="text-sm text-gray-500">4.8</span>
+                            </div>
+                        </div>
+                        <button onclick="openModal('السوروبان')" class="w-full btn-premium text-white py-4 rounded-2xl font-bold text-lg">
+                            سجل الآن
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Handwriting Course -->
+                <div class="course-card card-hover bg-white rounded-3xl overflow-hidden shadow-xl">
+                    <div class="relative h-64 bg-gradient-to-br from-purple-400 to-pink-600 flex items-center justify-center">
+                        <div class="course-icon w-20 h-20 rounded-full flex items-center justify-center">
+                            <svg class="w-10 h-10 text-white" fill="currentColor" viewBox="0 0 20 20">
+                                <path d="M13.586 3.586a2 2 0 112.828 2.828l-.793.793-2.828-2.828.793-.793zM11.379 5.793L3 14.172V17h2.828l8.38-8.379-2.83-2.828z"></path>
+                            </svg>
+                        </div>
+                    </div>
+                    <div class="p-8">
+                        <h3 class="text-2xl font-bold text-gray-800 mb-4">تحسين الخط</h3>
+                        <p class="text-gray-600 mb-6 leading-relaxed">
+                            دورات متخصصة لتطوير مهارات الكتابة والخط العربي الجميل لجميع الأعمار
+                        </p>
+                        <div class="flex items-center justify-between mb-6">
+                            <span class="text-sm text-gray-500">جميع الأعمار</span>
+                            <div class="flex items-center space-x-1 space-x-reverse">
+                                <svg class="w-4 h-4 text-yellow-400" fill="currentColor" viewBox="0 0 20 20">
+                                    <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path>
+                                </svg>
+                                <span class="text-sm text-gray-500">4.7</span>
+                            </div>
+                        </div>
+                        <button onclick="openModal('تحسين الخط')" class="w-full btn-premium text-white py-4 rounded-2xl font-bold text-lg">
+                            سجل الآن
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Pharmacy Course -->
+                <div class="course-card card-hover bg-white rounded-3xl overflow-hidden shadow-xl">
+                    <div class="relative h-64 bg-gradient-to-br from-red-400 to-pink-600 flex items-center justify-center">
+                        <div class="course-icon w-20 h-20 rounded-full flex items-center justify-center">
+                            <svg class="w-10 h-10 text-white" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M3 6a3 3 0 013-3h10a1 1 0 01.8 1.6L14.25 8l2.55 3.4A1 1 0 0116 13H6a1 1 0 00-1 1v3a1 1 0 11-2 0V6z" clip-rule="evenodd"></path>
+                            </svg>
+                        </div>
+                        <div class="absolute top-4 right-4 bg-white/20 backdrop-blur-sm rounded-full px-3 py-1 text-white text-sm font-semibold">
+                            متقدم
+                        </div>
+                    </div>
+                    <div class="p-8">
+                        <h3 class="text-2xl font-bold text-gray-800 mb-4">دورات الصيدلة</h3>
+                        <p class="text-gray-600 mb-6 leading-relaxed">
+                            برامج تعليمية متقدمة للبالغين في مجال الصيدلة والعلوم الطبية
+                        </p>
+                        <div class="flex items-center justify-between mb-6">
+                            <span class="text-sm text-gray-500">البالغين</span>
+                            <div class="flex items-center space-x-1 space-x-reverse">
+                                <svg class="w-4 h-4 text-yellow-400" fill="currentColor" viewBox="0 0 20 20">
+                                    <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path>
+                                </svg>
+                                <span class="text-sm text-gray-500">4.9</span>
+                            </div>
+                        </div>
+                        <button onclick="openModal('دورات الصيدلة')" class="w-full btn-premium text-white py-4 rounded-2xl font-bold text-lg">
+                            سجل الآن
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Computer Skills Course -->
+                <div class="course-card card-hover bg-white rounded-3xl overflow-hidden shadow-xl">
+                    <div class="relative h-64 bg-gradient-to-br from-indigo-400 to-purple-600 flex items-center justify-center">
+                        <div class="course-icon w-20 h-20 rounded-full flex items-center justify-center">
+                            <svg class="w-10 h-10 text-white" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M3 5a2 2 0 012-2h10a2 2 0 012 2v8a2 2 0 01-2 2h-2.22l.123.489.804.804A1 1 0 0113 18H7a1 1 0 01-.707-1.707l.804-.804L7.22 15H5a2 2 0 01-2-2V5zm5.771 7H5V5h10v7H8.771z" clip-rule="evenodd"></path>
+                            </svg>
+                        </div>
+                    </div>
+                    <div class="p-8">
+                        <h3 class="text-2xl font-bold text-gray-800 mb-4">مهارات الحاسوب</h3>
+                        <p class="text-gray-600 mb-6 leading-relaxed">
+                            تعلم أساسيات الحاسوب والبرمجة وتطبيقات المكتب للطلاب والمهنيين
+                        </p>
+                        <div class="flex items-center justify-between mb-6">
+                            <span class="text-sm text-gray-500">جميع الأعمار</span>
+                            <div class="flex items-center space-x-1 space-x-reverse">
+                                <svg class="w-4 h-4 text-yellow-400" fill="currentColor" viewBox="0 0 20 20">
+                                    <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path>
+                                </svg>
+                                <span class="text-sm text-gray-500">4.6</span>
+                            </div>
+                        </div>
+                        <button onclick="openModal('مهارات الحاسوب')" class="w-full btn-premium text-white py-4 rounded-2xl font-bold text-lg">
+                            سجل الآن
+                        </button>
+                    </div>
+                </div>
+
+                <!-- English Course -->
+                <div class="course-card card-hover bg-white rounded-3xl overflow-hidden shadow-xl">
+                    <div class="relative h-64 bg-gradient-to-br from-orange-400 to-red-600 flex items-center justify-center">
+                        <div class="course-icon w-20 h-20 rounded-full flex items-center justify-center">
+                            <svg class="w-10 h-10 text-white" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M12.316 3.051a1 1 0 01.633 1.265l-4 12a1 1 0 11-1.898-.632l4-12a1 1 0 011.265-.633zM5.707 6.293a1 1 0 010 1.414L3.414 10l2.293 2.293a1 1 0 11-1.414 1.414l-3-3a1 1 0 010-1.414l3-3a1 1 0 011.414 0zm8.586 0a1 1 0 011.414 0l3 3a1 1 0 010 1.414l-3 3a1 1 0 11-1.414-1.414L16.586 10l-2.293-2.293a1 1 0 010-1.414z" clip-rule="evenodd"></path>
+                            </svg>
+                        </div>
+                    </div>
+                    <div class="p-8">
+                        <h3 class="text-2xl font-bold text-gray-800 mb-4">اللغة الإنجليزية</h3>
+                        <p class="text-gray-600 mb-6 leading-relaxed">
+                            دورات شاملة لتعلم اللغة الإنجليزية من المستوى المبتدئ إلى المتقدم
+                        </p>
+                        <div class="flex items-center justify-between mb-6">
+                            <span class="text-sm text-gray-500">جميع الأعمار</span>
+                            <div class="flex items-center space-x-1 space-x-reverse">
+                                <svg class="w-4 h-4 text-yellow-400" fill="currentColor" viewBox="0 0 20 20">
+                                    <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path>
+                                </svg>
+                                <span class="text-sm text-gray-500">4.8</span>
+                            </div>
+                        </div>
+                        <button onclick="openModal('اللغة الإنجليزية')" class="w-full btn-premium text-white py-4 rounded-2xl font-bold text-lg">
+                            سجل الآن
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Math Course -->
+                <div class="course-card card-hover bg-white rounded-3xl overflow-hidden shadow-xl">
+                    <div class="relative h-64 bg-gradient-to-br from-teal-400 to-cyan-600 flex items-center justify-center">
+                        <div class="course-icon w-20 h-20 rounded-full flex items-center justify-center">
+                            <svg class="w-10 h-10 text-white" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M3 4a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zm0 4a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zm0 4a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zm0 4a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1z" clip-rule="evenodd"></path>
+                            </svg>
+                        </div>
+                    </div>
+                    <div class="p-8">
+                        <h3 class="text-2xl font-bold text-gray-800 mb-4">الرياضيات المتقدمة</h3>
+                        <p class="text-gray-600 mb-6 leading-relaxed">
+                            برامج متخصصة في الرياضيات والحساب الذهني لتطوير القدرات التحليلية
+                        </p>
+                        <div class="flex items-center justify-between mb-6">
+                            <span class="text-sm text-gray-500">الطلاب والكبار</span>
+                            <div class="flex items-center space-x-1 space-x-reverse">
+                                <svg class="w-4 h-4 text-yellow-400" fill="currentColor" viewBox="0 0 20 20">
+                                    <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path>
+                                </svg>
+                                <span class="text-sm text-gray-500">4.7</span>
+                            </div>
+                        </div>
+                        <button onclick="openModal('الرياضيات المتقدمة')" class="w-full btn-premium text-white py-4 rounded-2xl font-bold text-lg">
+                            سجل الآن
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Art Course -->
+                <div class="course-card card-hover bg-white rounded-3xl overflow-hidden shadow-xl">
+                    <div class="relative h-64 bg-gradient-to-br from-yellow-400 to-orange-600 flex items-center justify-center">
+                        <div class="course-icon w-20 h-20 rounded-full flex items-center justify-center">
+                            <svg class="w-10 h-10 text-white" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M4 3a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V5a2 2 0 00-2-2H4zm12 12H4l4-8 3 6 2-4 3 6z" clip-rule="evenodd"></path>
+                            </svg>
+                        </div>
+                    </div>
+                    <div class="p-8">
+                        <h3 class="text-2xl font-bold text-gray-800 mb-4">الفنون والإبداع</h3>
+                        <p class="text-gray-600 mb-6 leading-relaxed">
+                            دورات فنية متنوعة لتنمية المواهب الإبداعية والمهارات الفنية
+                        </p>
+                        <div class="flex items-center justify-between mb-6">
+                            <span class="text-sm text-gray-500">الأطفال والمراهقين</span>
+                            <div class="flex items-center space-x-1 space-x-reverse">
+                                <svg class="w-4 h-4 text-yellow-400" fill="currentColor" viewBox="0 0 20 20">
+                                    <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path>
+                                </svg>
+                                <span class="text-sm text-gray-500">4.5</span>
+                            </div>
+                        </div>
+                        <button onclick="openModal('الفنون والإبداع')" class="w-full btn-premium text-white py-4 rounded-2xl font-bold text-lg">
+                            سجل الآن
+                        </button>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
 
     <!-- Features Section -->
-    <section class="py-16 bg-gradient-to-br from-primary-50 to-secondary-50">
-        <div class="container mx-auto px-4">
-            <div class="text-center max-w-3xl mx-auto mb-16">
-                <h2 class="text-3xl md:text-4xl font-black mb-6 text-dark">لماذا تختار <span class="gradient-text">مدرستنا؟</span></h2>
-                <p class="text-lg text-gray-600">نتميز بتقديم تجربة تعليمية فريدة تجمع بين الأصالة والابتكار لضمان تحقيق أفضل النتائج.</p>
-                <div class="section-divider mt-8"></div>
+    <section class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl md:text-5xl font-black text-gray-800 mb-6">
+                    لماذا <span class="text-gradient">أكاديمية المستقبل</span>؟
+                </h2>
+                <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+                    نحن نقدم تجربة تعليمية فريدة تجمع بين الجودة والابتكار
+                </p>
             </div>
-
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                <div class="feature-item bg-white rounded-2xl p-6 shadow-md text-center">
-                    <div class="feature-icon mx-auto">
-                        <i class="fas fa-user-tie text-2xl text-white"></i>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="text-center p-8 rounded-3xl bg-gradient-to-br from-blue-50 to-indigo-50 card-hover">
+                    <div class="w-20 h-20 bg-gradient-to-r from-blue-500 to-indigo-600 rounded-full flex items-center justify-center mx-auto mb-6 shadow-lg">
+                        <svg class="w-10 h-10 text-white" fill="currentColor" viewBox="0 0 20 20">
+                            <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                        </svg>
                     </div>
-                    <h3 class="text-xl font-black mb-3 text-dark">مدربون معتمدون</h3>
-                    <p class="text-gray-600">فريقنا من المدربين المؤهلين ذوي الخبرة الواسعة في مجالات تخصصهم.</p>
+                    <h3 class="text-2xl font-bold text-gray-800 mb-4">جودة عالية</h3>
+                    <p class="text-gray-600 leading-relaxed">
+                        مناهج معتمدة ومدرسين مؤهلين لضمان أفضل تجربة تعليمية
+                    </p>
                 </div>
-
-                <div class="feature-item bg-white rounded-2xl p-6 shadow-md text-center">
-                    <div class="feature-icon mx-auto">
-                        <i class="fas fa-book-open text-2xl text-white"></i>
+                
+                <div class="text-center p-8 rounded-3xl bg-gradient-to-br from-green-50 to-emerald-50 card-hover">
+                    <div class="w-20 h-20 bg-gradient-to-r from-green-500 to-emerald-600 rounded-full flex items-center justify-center mx-auto mb-6 shadow-lg">
+                        <svg class="w-10 h-10 text-white" fill="currentColor" viewBox="0 0 20 20">
+                            <path fill-rule="evenodd" d="M11.49 3.17c-.38-1.56-2.6-1.56-2.98 0a1.532 1.532 0 01-2.286.948c-1.372-.836-2.942.734-2.106 2.106.54.886.061 2.042-.947 2.287-1.561.379-1.561 2.6 0 2.978a1.532 1.532 0 01.947 2.287c-.836 1.372.734 2.942 2.106 2.106a1.532 1.532 0 012.287.947c.379 1.561 2.6 1.561 2.978 0a1.533 1.533 0 012.287-.947c1.372.836 2.942-.734 2.106-2.106a1.533 1.533 0 01.947-2.287c1.561-.379 1.561-2.6 0-2.978a1.532 1.532 0 01-.947-2.287c.836-1.372-.734-2.942-2.106-2.106a1.532 1.532 0 01-2.287-.947zM10 13a3 3 0 100-6 3 3 0 000 6z" clip-rule="evenodd"></path>
+                        </svg>
                     </div>
-                    <h3 class="text-xl font-black mb-3 text-dark">مناهج متطورة</h3>
-                    <p class="text-gray-600">مناهج مصممة وفق أحدث الأساليب التعليمية والتقنيات التربوية.</p>
+                    <h3 class="text-2xl font-bold text-gray-800 mb-4">مرونة في التعلم</h3>
+                    <p class="text-gray-600 leading-relaxed">
+                        جداول مرنة وأساليب تعليم متنوعة تناسب جميع الأعمار والمستويات
+                    </p>
                 </div>
-
-                <div class="feature-item bg-white rounded-2xl p-6 shadow-md text-center">
-                    <div class="feature-icon mx-auto">
-                        <i class="fas fa-chalkboard text-2xl text-white"></i>
+                
+                <div class="text-center p-8 rounded-3xl bg-gradient-to-br from-purple-50 to-pink-50 card-hover">
+                    <div class="w-20 h-20 bg-gradient-to-r from-purple-500 to-pink-600 rounded-full flex items-center justify-center mx-auto mb-6 shadow-lg">
+                        <svg class="w-10 h-10 text-white" fill="currentColor" viewBox="0 0 20 20">
+                            <path fill-rule="evenodd" d="M3.172 5.172a4 4 0 015.656 0L10 6.343l1.172-1.171a4 4 0 115.656 5.656L10 17.657l-6.828-6.829a4 4 0 010-5.656z" clip-rule="evenodd"></path>
+                        </svg>
                     </div>
-                    <h3 class="text-xl font-black mb-3 text-dark">فصول تفاعلية</h3>
-                    <p class="text-gray-600">فصول دراسية مجهزة بأحدث التقنيات لتعزيز تجربة التعلم.</p>
+                    <h3 class="text-2xl font-bold text-gray-800 mb-4">دعم مستمر</h3>
+                    <p class="text-gray-600 leading-relaxed">
+                        متابعة شخصية ودعم مستمر لضمان تحقيق أهدافك التعليمية
+                    </p>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- About Section -->
-    <section id="about" class="py-16 bg-white">
-        <div class="container mx-auto px-4">
-            <div class="flex flex-col lg:flex-row items-center">
-                <div class="lg:w-1/2 mb-10 lg:mb-0 lg:pr-10">
-                    <h2 class="text-3xl md:text-4xl font-black mb-6 text-dark">عن <span class="gradient-text">smart learning hub</span></h2>
-                    <p class="text-lg text-gray-700 mb-6">
-                        تأسست smart learning hub في عام 2024بهدف تقديم تعليم متميز يجمع بين الأصالة والابتكار. نحن نؤمن بأن كل طالب لديه قدرات فريدة تحتاج إلى الرعاية والاهتمام المناسبين.
-                    </p>
-                    <p class="text-lg text-gray-700 mb-8">
-                        مهمتنا هي توفير بيئة تعليمية محفزة تدعم النمو الشامل للطلاب وتطور مهاراتهم الأكاديمية والشخصية، مع التركيز على القيم الأخلاقية والمواطنة الصالحة.
-                    </p>
-                    <div class="flex space-x-4 space-x-reverse">
-                        <button class="btn-primary py-3 px-6 rounded-lg font-medium">
-                            رؤيتنا ورسالتنا
-                        </button>
-                        <button class="bg-gray-100 hover:bg-gray-200 text-dark py-3 px-6 rounded-lg font-medium transition">
-                            <i class="fas fa-download ml-2"></i>
-                            تحميل البروشور
-                        </button>
+    <section id="about" class="py-20 bg-gradient-to-br from-gray-900 to-blue-900 text-white relative overflow-hidden">
+        <div class="absolute inset-0 bg-black/20"></div>
+        <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                <div>
+                    <h2 class="text-4xl md:text-5xl font-black mb-8">
+                        رؤيتنا و <span class="text-gradient bg-gradient-to-r from-yellow-300 to-orange-300 bg-clip-text text-transparent">رسالتنا</span>
+                    </h2>
+                    <div class="space-y-6 text-lg leading-relaxed">
+                        <p class="text-gray-200">
+                            نحن في أكاديمية المستقبل نؤمن بأن التعليم هو المفتاح الحقيقي لبناء مستقبل أفضل. نسعى لتقديم تعليم متميز يجمع بين الأصالة والمعاصرة.
+                        </p>
+                        <p class="text-gray-200">
+                            رسالتنا هي إعداد جيل واعٍ ومبدع قادر على مواجهة تحديات المستقبل بثقة وكفاءة عالية من خلال برامج تعليمية متطورة ومناهج حديثة.
+                        </p>
+                    </div>
+                    
+                    <div class="mt-10 grid grid-cols-2 gap-6">
+                        <div class="text-center">
+                            <div class="text-3xl font-bold text-yellow-300 mb-2">500+</div>
+                            <div class="text-gray-300">طالب متخرج</div>
+                        </div>
+                        <div class="text-center">
+                            <div class="text-3xl font-bold text-yellow-300 mb-2">15+</div>
+                            <div class="text-gray-300">برنامج تعليمي</div>
+                        </div>
                     </div>
                 </div>
-                <div class="lg:w-1/2">
-                    <div class="grid grid-cols-2 gap-4">
-                        <img src="https://images.unsplash.com/photo-1523240795612-9a054b0db644?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="فصل دراسي" class="rounded-2xl shadow-md w-full h-64 object-cover">
-                        <img src="https://images.unsplash.com/photo-1524178232409-7c3f72b7eb6f?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="معلم وطلاب" class="rounded-2xl shadow-md w-full h-64 object-cover mt-8">
+                
+                <div class="relative">
+                    <div class="relative z-10 bg-white/10 backdrop-blur-lg rounded-3xl p-8 border border-white/20">
+                        <h3 class="text-2xl font-bold mb-6">قيمنا الأساسية</h3>
+                        <div class="space-y-4">
+                            <div class="flex items-center space-x-4 space-x-reverse">
+                                <div class="w-12 h-12 bg-yellow-500 rounded-full flex items-center justify-center">
+                                    <svg class="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 20 20">
+                                        <path fill-rule="evenodd" d="M6.267 3.455a3.066 3.066 0 001.745-.723 3.066 3.066 0 013.976 0 3.066 3.066 0 001.745.723 3.066 3.066 0 012.812 2.812c.051.643.304 1.254.723 1.745a3.066 3.066 0 010 3.976 3.066 3.066 0 00-.723 1.745 3.066 3.066 0 01-2.812 2.812 3.066 3.066 0 00-1.745.723 3.066 3.066 0 01-3.976 0 3.066 3.066 0 00-1.745-.723 3.066 3.066 0 01-2.812-2.812 3.066 3.066 0 00-.723-1.745 3.066 3.066 0 010-3.976 3.066 3.066 0 00.723-1.745 3.066 3.066 0 012.812-2.812zm7.44 5.252a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
+                                    </svg>
+                                </div>
+                                <div>
+                                    <h4 class="font-bold">التميز</h4>
+                                    <p class="text-gray-300 text-sm">نسعى للتميز في كل ما نقدمه</p>
+                                </div>
+                            </div>
+                            <div class="flex items-center space-x-4 space-x-reverse">
+                                <div class="w-12 h-12 bg-green-500 rounded-full flex items-center justify-center">
+                                    <svg class="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 20 20">
+                                        <path fill-rule="evenodd" d="M3.172 5.172a4 4 0 015.656 0L10 6.343l1.172-1.171a4 4 0 115.656 5.656L10 17.657l-6.828-6.829a4 4 0 010-5.656z" clip-rule="evenodd"></path>
+                                    </svg>
+                                </div>
+                                <div>
+                                    <h4 class="font-bold">الشغف</h4>
+                                    <p class="text-gray-300 text-sm">نحب ما نعمل ونعمل بحب</p>
+                                </div>
+                            </div>
+                            <div class="flex items-center space-x-4 space-x-reverse">
+                                <div class="w-12 h-12 bg-blue-500 rounded-full flex items-center justify-center">
+                                    <svg class="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 20 20">
+                                        <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
+                                    </svg>
+                                </div>
+                                <div>
+                                    <h4 class="font-bold">الالتزام</h4>
+                                    <p class="text-gray-300 text-sm">ملتزمون بتحقيق أهدافكم</p>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -504,334 +703,290 @@
     </section>
 
     <!-- Testimonials Section -->
-    <section id="testimonials" class="py-16 bg-gray-50">
-        <div class="container mx-auto px-4">
-            <div class="text-center max-w-3xl mx-auto mb-16">
-                <h2 class="text-3xl md:text-4xl font-black mb-6 text-dark">آراء <span class="gradient-text">عملائنا</span></h2>
-                <p class="text-lg text-gray-600">انطباعات أولياء الأمور والطلاب عن تجربتهم مع برامجنا التعليمية.</p>
-                <div class="section-divider mt-8"></div>
+    <section class="py-20 bg-gradient-to-br from-blue-50 to-indigo-100">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl md:text-5xl font-black text-gray-800 mb-6">
+                    آراء <span class="text-gradient">طلابنا</span>
+                </h2>
+                <p class="text-xl text-gray-600">شهادات حقيقية من طلابنا المتميزين</p>
             </div>
-
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                <div class="testimonial-card bg-white rounded-2xl p-6 shadow-md">
-                    <div class="flex items-center mb-4">
-                        <div class="w-14 h-14 rounded-full overflow-hidden">
-                            <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?ixlib=rb-4.0.3&auto=format&fit=crop&w=100&q=80" alt="وليّ أمر" class="w-full h-full object-cover">
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="bg-white rounded-3xl p-8 shadow-xl card-hover">
+                    <div class="flex items-center mb-6">
+                        <div class="w-16 h-16 bg-gradient-to-r from-blue-400 to-purple-500 rounded-full flex items-center justify-center text-white font-bold text-xl">
+                            أ
                         </div>
-                        <div class="mr-3">
-                            <h4 class="font-black text-dark">أحمد  </h4>
-                            <p class="text-sm text-primary-600">وليّ أمر طالب</p>
+                        <div class="mr-4">
+                            <h4 class="font-bold text-gray-800">أحمد محمد</h4>
+                            <p class="text-gray-500 text-sm">طالب السوروبان</p>
                         </div>
                     </div>
-                    <p class="text-gray-600 mb-4">
-                        تحسن مستوى ابني في مادة الرياضيات بشكل ملحوظ بعد انتظامه في دورات السوروبان. شكراً لفريق المعلمين المتميز.
+                    <p class="text-gray-600 leading-relaxed">
+                        "تجربة رائعة! تحسنت قدراتي في الحساب الذهني بشكل مذهل. المدرسين محترفين والمنهج ممتاز."
                     </p>
-                    <div class="flex text-yellow-400">
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
+                    <div class="flex items-center mt-4">
+                        <div class="flex space-x-1 space-x-reverse">
+                            <svg class="w-5 h-5 text-yellow-400" fill="currentColor" viewBox="0 0 20 20">
+                                <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path>
+                            </svg>
+                            <svg class="w-5 h-5 text-yellow-400" fill="currentColor" viewBox="0 0 20 20">
+                                <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path>
+                            </svg>
+                            <svg class="w-5 h-5 text-yellow-400" fill="currentColor" viewBox="0 0 20 20">
+                                <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path>
+                            </svg>
+                            <svg class="w-5 h-5 text-yellow-400" fill="currentColor" viewBox="0 0 20 20">
+                                <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path>
+                            </svg>
+                            <svg class="w-5 h-5 text-yellow-400" fill="currentColor" viewBox="0 0 20 20">
+                                <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path>
+                            </svg>
+                        </div>
                     </div>
                 </div>
-                <div class="testimonial-card bg-white rounded-2xl p-6 shadow-md">
-                    <div class="flex items-center mb-4">
-                        <div class="w-14 h-14 rounded-full overflow-hidden">
-                            <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?ixlib=rb-4.0.3&auto=format&fit=crop&w=100&q=80" alt="وليّ أمر" class="w-full h-full object-cover">
+                
+                <div class="bg-white rounded-3xl p-8 shadow-xl card-hover">
+                    <div class="flex items-center mb-6">
+                        <div class="w-16 h-16 bg-gradient-to-r from-green-400 to-blue-500 rounded-full flex items-center justify-center text-white font-bold text-xl">
+                            ف
                         </div>
-                        <div class="mr-3">
-                            <h4 class="font-black text-dark">أحمد  </h4>
-                            <p class="text-sm text-primary-600">وليّ أمر طالب</p>
+                        <div class="mr-4">
+                            <h4 class="font-bold text-gray-800">فاطمة علي</h4>
+                            <p class="text-gray-500 text-sm">طالبة تحسين الخط</p>
                         </div>
                     </div>
-                    <p class="text-gray-600 mb-4">
-                        تحسن مستوى ابني في مادة الرياضيات بشكل ملحوظ بعد انتظامه في دورات السوروبان. شكراً لفريق المعلمين المتميز.
+                    <p class="text-gray-600 leading-relaxed">
+                        "أكاديمية المستقبل غيرت حياتي! تحسن خطي بشكل كبير وأصبحت أكثر ثقة في كتاباتي. شكراً لكم على الجهود المبذولة."
                     </p>
-                    <div class="flex text-yellow-400">
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
+                    <div class="flex items-center mt-4">
+                        <div class="flex space-x-1 space-x-reverse">
+                            <svg class="w-5 h-5 text-yellow-400" fill="currentColor" viewBox="0 0 20 20">
+                                <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path>
+                            </svg>
+                            <svg class="w-5 h-5 text-yellow-400" fill="currentColor" viewBox="0 0 20 20">
+                                <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path>
+                            </svg>
+                            <svg class="w-5 h-5 text-yellow-400" fill="currentColor" viewBox="0 0 20 20">
+                                <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path>
+                            </svg>
+                            <svg class="w-5 h-5 text-yellow-400" fill="currentColor" viewBox="0 0 20 20">
+                                <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path>
+                            </svg>
+                            <svg class="w-5 h-5 text-yellow-400" fill="currentColor" viewBox="0 0 20 20">
+                                <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path>
+                            </svg>
+                        </div>
                     </div>
                 </div>
-                <div class="testimonial-card bg-white rounded-2xl p-6 shadow-md">
-                    <div class="flex items-center mb-4">
-                        <div class="w-14 h-14 rounded-full overflow-hidden">
-                            <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?ixlib=rb-4.0.3&auto=format&fit=crop&w=100&q=80" alt="وليّ أمر" class="w-full h-full object-cover">
+                
+                <div class="bg-white rounded-3xl p-8 shadow-xl card-hover">
+                    <div class="flex items-center mb-6">
+                        <div class="w-16 h-16 bg-gradient-to-r from-green-400 to-teal-500 rounded-full flex items-center justify-center text-white font-bold text-xl">
+                            س
                         </div>
-                        <div class="mr-3">
-                            <h4 class="font-black text-dark">أحمد  </h4>
-                            <p class="text-sm text-primary-600">وليّ أمر طالب</p>
+                        <div class="mr-4">
+                            <h4 class="font-bold text-gray-800">سارة أحمد</h4>
+                            <p class="text-gray-500 text-sm">طالبة دورات الصيدلة</p>
                         </div>
                     </div>
-                    <p class="text-gray-600 mb-4">
-                        تحسن مستوى ابني في مادة الرياضيات بشكل ملحوظ بعد انتظامه في دورات السوروبان. شكراً لفريق المعلمين المتميز.
+                    <p class="text-gray-600 leading-relaxed">
+                        "المحتوى العلمي ممتاز والتطبيق العملي مفيد جداً. ساعدني كثيراً في تطوير مهاراتي المهنية."
                     </p>
-                    <div class="flex text-yellow-400">
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
+                    <div class="flex items-center mt-4">
+                        <div class="flex space-x-1 space-x-reverse">
+                            <svg class="w-5 h-5 text-yellow-400" fill="currentColor" viewBox="0 0 20 20">
+                                <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path>
+                            </svg>
+                            <svg class="w-5 h-5 text-yellow-400" fill="currentColor" viewBox="0 0 20 20">
+                                <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path>
+                            </svg>
+                            <svg class="w-5 h-5 text-yellow-400" fill="currentColor" viewBox="0 0 20 20">
+                                <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path>
+                            </svg>
+                            <svg class="w-5 h-5 text-yellow-400" fill="currentColor" viewBox="0 0 20 20">
+                                <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path>
+                            </svg>
+                        </div>
                     </div>
                 </div>
-
-         
+                
+                <div class="bg-white rounded-3xl p-8 shadow-xl card-hover">
+                    <div class="flex items-center mb-6">
+                        <div class="w-16 h-16 bg-gradient-to-r from-purple-400 to-pink-500 rounded-full flex items-center justify-center text-white font-bold text-xl">
+                            م
+                        </div>
+                        <div class="mr-4">
+                            <h4 class="font-bold text-gray-800">محمد خالد</h4>
+                            <p class="text-gray-500 text-sm">طالب دعم اللغة</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-600 leading-relaxed">
+                        "الأساتذة رائعون والطريقة التعليمية مبتكرة. تحسنت مهاراتي اللغوية بشكل ملحوظ في وقت قصير."
+                    </p>
+                    <div class="flex items-center mt-4">
+                        <div class="flex space-x-1 space-x-reverse">
+                            <svg class="w-5 h-5 text-yellow-400" fill="currentColor" viewBox="0 0 20 20">
+                                <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path>
+                            </svg>
+                            <svg class="w-5 h-5 text-yellow-400" fill="currentColor" viewBox="0 0 20 20">
+                                <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path>
+                            </svg>
+                            <svg class="w-5 h-5 text-yellow-400" fill="currentColor" viewBox="0 0 20 20">
+                                <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path>
+                            </svg>
+                            <svg class="w-5 h-5 text-yellow-400" fill="currentColor" viewBox="0 0 20 20">
+                                <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path>
+                            </svg>
+                            <svg class="w-5 h-5 text-yellow-400" fill="currentColor" viewBox="0 0 20 20">
+                                <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path>
+                            </svg>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
-
-    <!-- CTA Section -->
-    <section class="py-16 bg-primary-800">
-        <div class="container mx-auto px-4 text-center">
-            <h2 class="text-3xl md:text-4xl font-black mb-6 text-white">ابدأ رحلة التعلم اليوم</h2>
-            <p class="text-xl text-primary-100 mb-10 max-w-3xl mx-auto">
-                انضم إلى عائلة smart learning hub واستفد من برامجنا التعليمية المتطورة لتحقيق أقصى استفادة من قدراتك أو قدرات أبنائك.
-            </p>
-            <button class="btn-accent py-4 px-10 rounded-lg text-lg font-bold shadow-lg" id="cta-register-btn">
-                سجل الآن مجاناً
-            </button>
-        </div>
-    </section>
-
-    <!-- Registration Modal -->
-    <div class="fixed inset-0 bg-black bg-opacity-60 flex items-center justify-center z-50 hidden modal" id="registration-modal">
-        <div class="bg-white rounded-2xl shadow-2xl w-11/12 md:w-3/4 lg:w-1/2 max-w-2xl p-6 relative">
-            <button class="absolute left-4 top-4 text-gray-500 hover:text-gray-700" id="close-modal">
-                <i class="fas fa-times text-xl"></i>
-            </button>
-            
-            <div class="text-center mb-6">
-                <h2 class="text-2xl font-black text-primary-800">نموذج التسجيل</h2>
-                <p class="text-gray-600">املأ النموذج أدناه وسنقوم بالاتصال بك لتأكيد التسجيل</p>
-            </div>
-            
-            <form class="space-y-4">
-                <div>
-                    <label for="name" class="block text-gray-700 mb-2 font-medium">الاسم الكامل</label>
-                    <input type="text" id="name" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent">
-                </div>
-                
-                <div>
-                    <label for="email" class="block text-gray-700 mb-2 font-medium">البريد الإلكتروني</label>
-                    <input type="email" id="email" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent">
-                </div>
-                
-                <div>
-                    <label for="phone" class="block text-gray-700 mb-2 font-medium">رقم الهاتف</label>
-                    <input type="tel" id="phone" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent">
-                </div>
-                
-                <div>
-                    <label for="course" class="block text-gray-700 mb-2 font-medium">اختر الدورة</label>
-                    <select id="course" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent">
-                        <option value="">-- اختر الدورة --</option>
-                        <option value="language">دورات اللغة</option>
-                        <option value="soroban">السوروبان</option>
-                        <option value="handwriting">تحسين الخط</option>
-                        <option value="pharmacy">دورات الصيدلة</option>
-                        <option value="programming">برمجة الأطفال</option>
-                        <option value="art">التربية الفنية</option>
-                    </select>
-                </div>
-                
-                <button type="submit" class="w-full btn-primary py-3 px-4 rounded-lg font-bold text-lg transition transform hover:scale-105">
-                    إرسال الطلب
-                </button>
-            </form>
-        </div>
-    </div>
 
     <!-- Footer -->
-    <footer id="contact" class="bg-dark text-white pt-16 pb-8">
-        <div class="container mx-auto px-4">
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-                <div>
-                    <div class="h-14 w-14 rounded-lg bg-gradient-to-br from-primary-500 to-secondary-500 flex items-center justify-center text-white font-bold text-xl shadow-md mb-6">
-                        <i class="fas fa-graduation-cap"></i>
+    <footer id="contact" class="bg-gray-900 text-white py-16">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <div class="md:col-span-2">
+                    <div class="flex items-center space-x-4 space-x-reverse mb-6">
+                        <div class="w-16 h-16 bg-gradient-to-r from-primary-500 to-secondary-500 rounded-2xl flex items-center justify-center shadow-lg">
+                            <span class="text-white font-bold text-2xl">أ</span>
+                        </div>
+                        <div>
+                            <h3 class="text-2xl font-bold">أكاديمية المستقبل</h3>
+                            <p class="text-gray-400">التعليم المتميز</p>
+                        </div>
                     </div>
-                    <h3 class="text-xl font-black mb-4">smart learning hub</h3>
-                    <p class="mb-6 text-gray-300">نقدم برامج تعليمية متميزة للأطفال والكبار في مختلف المجالات الأكاديمية والمهنية.</p>
+                    <p class="text-gray-300 leading-relaxed mb-6 max-w-md">
+                        نحن نقدم تعليماً متميزاً ومبتكراً يهدف إلى تطوير قدرات الطلاب في مختلف المجالات التعليمية والمهنية.
+                    </p>
                     <div class="flex space-x-4 space-x-reverse">
-                        <a href="#" class="bg-primary-700 hover:bg-primary-600 w-10 h-10 rounded-full flex items-center justify-center transition">
-                            <i class="fab fa-facebook-f"></i>
+                        <a href="#" class="w-12 h-12 bg-blue-600 rounded-full flex items-center justify-center hover:bg-blue-700 transition-colors duration-300">
+                            <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M24 4.557c-.883.392-1.832.656-2.828.775 1.017-.609 1.798-1.574 2.165-2.724-.951.564-2.005.974-3.127 1.195-.897-.957-2.178-1.555-3.594-1.555-3.179 0-5.515 2.966-4.797 6.045-4.091-.205-7.719-2.165-10.148-5.144-1.29 2.213-.669 5.108 1.523 6.574-.806-.026-1.566-.247-2.229-.616-.054 2.281 1.581 4.415 3.949 4.89-.693.188-1.452.232-2.224.084.626 1.956 2.444 3.379 4.6 3.419-2.07 1.623-4.678 2.348-7.29 2.04 2.179 1.397 4.768 2.212 7.548 2.212 9.142 0 14.307-7.721 13.995-14.646.962-.695 1.797-1.562 2.457-2.549z"/>
+                            </svg>
                         </a>
-                        <a href="#" class="bg-primary-700 hover:bg-primary-600 w-10 h-10 rounded-full flex items-center justify-center transition">
-                            <i class="fab fa-twitter"></i>
+                        <a href="#" class="w-12 h-12 bg-blue-800 rounded-full flex items-center justify-center hover:bg-blue-900 transition-colors duration-300">
+                            <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M22.46 6c-.77.35-1.6.58-2.46.69.88-.53 1.56-1.37 1.88-2.38-.83.5-1.75.85-2.72 1.05C18.37 4.5 17.26 4 16 4c-2.35 0-4.27 1.92-4.27 4.29 0 .34.04.67.11.98C8.28 9.09 5.11 7.38 3 4.79c-.37.63-.58 1.37-.58 2.15 0 1.49.75 2.81 1.91 3.56-.71 0-1.37-.2-1.95-.5v.03c0 2.08 1.48 3.82 3.44 4.21a4.22 4.22 0 0 1-1.93.07 4.28 4.28 0 0 0 4 2.98 8.521 8.521 0 0 1-5.33 1.84c-.34 0-.68-.02-1.02-.06C3.44 20.29 5.7 21 8.12 21 16 21 20.33 14.46 20.33 8.79c0-.19 0-.37-.01-.56.84-.6 1.56-1.36 2.14-2.23z"/>
+                            </svg>
                         </a>
-                        <a href="#" class="bg-primary-700 hover:bg-primary-600 w-10 h-10 rounded-full flex items-center justify-center transition">
-                            <i class="fab fa-instagram"></i>
+                        <a href="#" class="w-12 h-12 bg-pink-600 rounded-full flex items-center justify-center hover:bg-pink-700 transition-colors duration-300">
+                            <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M12.017 0C5.396 0 .029 5.367.029 11.987c0 5.079 3.158 9.417 7.618 11.174-.105-.949-.199-2.403.041-3.439.219-.937 1.406-5.957 1.406-5.957s-.359-.72-.359-1.781c0-1.663.967-2.911 2.168-2.911 1.024 0 1.518.769 1.518 1.688 0 1.029-.653 2.567-.992 3.992-.285 1.193.6 2.165 1.775 2.165 2.128 0 3.768-2.245 3.768-5.487 0-2.861-2.063-4.869-5.008-4.869-3.41 0-5.409 2.562-5.409 5.199 0 1.033.394 2.143.889 2.741.099.12.112.225.085.345-.09.375-.293 1.199-.334 1.363-.053.225-.172.271-.402.165-1.495-.69-2.433-2.878-2.433-4.646 0-3.776 2.748-7.252 7.92-7.252 4.158 0 7.392 2.967 7.392 6.923 0 4.135-2.607 7.462-6.233 7.462-1.214 0-2.357-.629-2.746-1.378l-.748 2.853c-.271 1.043-1.002 2.35-1.492 3.146C9.57 23.812 10.763 24.009 12.017 24.009c6.624 0 11.99-5.367 11.99-11.988C24.007 5.367 18.641.001.012.001z"/>
+                            </svg>
                         </a>
-                        <a href="#" class="bg-primary-700 hover:bg-primary-600 w-10 h-10 rounded-full flex items-center justify-center transition">
-                            <i class="fab fa-youtube"></i>
+                        <a href="#" class="w-12 h-12 bg-red-600 rounded-full flex items-center justify-center hover:bg-red-700 transition-colors duration-300">
+                            <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
+                            </svg>
                         </a>
                     </div>
                 </div>
                 
                 <div>
-                    <h3 class="text-lg font-bold mb-6">روابط سريعة</h3>
+                    <h4 class="text-xl font-bold mb-6">روابط سريعة</h4>
                     <ul class="space-y-3">
-                        <li><a href="#" class="text-gray-300 hover:text-white transition flex items-center">
-                            <i class="fas fa-arrow-left ml-2 text-xs"></i>
-                            الرئيسية
-                        </a></li>
-                        <li><a href="#courses" class="text-gray-300 hover:text-white transition flex items-center">
-                            <i class="fas fa-arrow-left ml-2 text-xs"></i>
-                            الدورات
-                        </a></li>
-                        <li><a href="#about" class="text-gray-300 hover:text-white transition flex items-center">
-                            <i class="fas fa-arrow-left ml-2 text-xs"></i>
-                            عن المدرسة
-                        </a></li>
-                        <li><a href="#testimonials" class="text-gray-300 hover:text-white transition flex items-center">
-                            <i class="fas fa-arrow-left ml-2 text-xs"></i>
-                            آراء العملاء
-                        </a></li>
-                        <li><a href="#contact" class="text-gray-300 hover:text-white transition flex items-center">
-                            <i class="fas fa-arrow-left ml-2 text-xs"></i>
-                            اتصل بنا
-                        </a></li>
+                        <li><a href="#home" class="text-gray-300 hover:text-white transition-colors duration-300">الرئيسية</a></li>
+                        <li><a href="#courses" class="text-gray-300 hover:text-white transition-colors duration-300">الدورات</a></li>
+                        <li><a href="#about" class="text-gray-300 hover:text-white transition-colors duration-300">من نحن</a></li>
+                        <li><a href="admin.html" class="text-gray-300 hover:text-white transition-colors duration-300">لوحة الإدارة</a></li>
                     </ul>
                 </div>
                 
                 <div>
-                    <h3 class="text-lg font-bold mb-6">الدورات</h3>
-                    <ul class="space-y-3">
-                        <li><a href="#" class="text-gray-300 hover:text-white transition flex items-center">
-                            <i class="fas fa-arrow-left ml-2 text-xs"></i>
-                            دورات اللغة
-                        </a></li>
-                        <li><a href="#" class="text-gray-300 hover:text-white transition flex items-center">
-                            <i class="fas fa-arrow-left ml-2 text-xs"></i>
-                            السوروبان
-                        </a></li>
-                        <li><a href="#" class="text-gray-300 hover:text-white transition flex items-center">
-                            <i class="fas fa-arrow-left ml-2 text-xs"></i>
-                            تحسين الخط
-                        </a></li>
-                        <li><a href="#" class="text-gray-300 hover:text-white transition flex items-center">
-                            <i class="fas fa-arrow-left ml-2 text-xs"></i>
-                            دورات الصيدلة
-                        </a></li>
-                        <li><a href="#" class="text-gray-300 hover:text-white transition flex items-center">
-                            <i class="fas fa-arrow-left ml-2 text-xs"></i>
-                            برمجة الأطفال
-                        </a></li>
-                    </ul>
-                </div>
-                
-                <div>
-                    <h3 class="text-lg font-bold mb-6">معلومات التواصل</h3>
-                    <ul class="space-y-4">
-                        <li class="flex items-start">
-                            <i class="fas fa-map-marker-alt mt-1 ml-3 text-primary-500"></i>
-                            <span class="text-gray-300"> XXXX</span>
-                        </li>
-                        <li class="flex items-start">
-                            <i class="fas fa-phone mt-1 ml-3 text-primary-500"></i>
-                            <span class="text-gray-300" dir="ltr">+213 0666666</span>
-                        </li>
-                        <li class="flex items-start">
-                            <i class="fas fa-envelope mt-1 ml-3 text-primary-500"></i>
-                            <span class="text-gray-300">contact@smartlearning.com</span>
-                        </li>
-                        <li class="flex items-start">
-                            <i class="fas fa-clock mt-1 ml-3 text-primary-500"></i>
-                            <span class="text-gray-300">الأحد - الخميس: 8 ص - 8 م</span>
-                        </li>
-                    </ul>
+                    <h4 class="text-xl font-bold mb-6">تواصل معنا</h4>
+                    <div class="space-y-4">
+                        <div class="flex items-center space-x-3 space-x-reverse">
+                            <svg class="w-5 h-5 text-primary-400" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clip-rule="evenodd"></path>
+                            </svg>
+                            <span class="text-gray-300">الرياض، المملكة العربية السعودية</span>
+                        </div>
+                        <div class="flex items-center space-x-3 space-x-reverse">
+                            <svg class="w-5 h-5 text-primary-400" fill="currentColor" viewBox="0 0 20 20">
+                                <path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z"></path>
+                            </svg>
+                            <span class="text-gray-300">+966 50 123 4567</span>
+                        </div>
+                        <div class="flex items-center space-x-3 space-x-reverse">
+                            <svg class="w-5 h-5 text-primary-400" fill="currentColor" viewBox="0 0 20 20">
+                                <path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z"></path>
+                                <path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z"></path>
+                            </svg>
+                            <span class="text-gray-300">info@future-academy.com</span>
+                        </div>
+                    </div>
                 </div>
             </div>
             
-            <div class="border-t border-gray-700 mt-12 pt-8 text-center text-gray-400">
-                <p>© 2023 smart learning hub. جميع الحقوق محفوظة.</p>
+            <div class="border-t border-gray-800 mt-12 pt-8 text-center">
+                <p class="text-gray-400">
+                    © 2025 أكاديمية المستقبل. جميع الحقوق محفوظة.
+                </p>
             </div>
         </div>
     </footer>
 
-    <script>
-        // Mobile menu toggle
-        document.getElementById('mobile-menu-button').addEventListener('click', function() {
-            const menu = document.getElementById('mobile-menu');
-            menu.classList.toggle('hidden');
-        });
-
-        // Registration modal
-        const registerButtons = document.querySelectorAll('#header-register-btn, #hero-register-btn, #cta-register-btn, #mobile-register-btn, .course-register-btn');
-        const modal = document.getElementById('registration-modal');
-        const closeModal = document.getElementById('close-modal');
-
-        registerButtons.forEach(button => {
-            button.addEventListener('click', function() {
-                modal.classList.remove('hidden');
-                document.body.style.overflow = 'hidden';
-            });
-        });
-
-        closeModal.addEventListener('click', function() {
-            modal.classList.add('hidden');
-            document.body.style.overflow = 'auto';
-        });
-
-        // Close modal when clicking outside
-        modal.addEventListener('click', function(e) {
-            if (e.target === modal) {
-                modal.classList.add('hidden');
-                document.body.style.overflow = 'auto';
-            }
-        });
-
-        // Smooth scrolling for anchor links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
+    <!-- Registration Modal -->
+    <div id="registration-modal" class="fixed inset-0 z-50 hidden">
+        <div class="modal-backdrop absolute inset-0"></div>
+        <div class="relative z-10 flex items-center justify-center min-h-screen p-4">
+            <div class="bg-white rounded-3xl p-8 max-w-md w-full max-h-[90vh] overflow-y-auto shadow-2xl transform transition-all duration-300 scale-95 opacity-0" id="modal-content">
+                <div class="flex justify-between items-center mb-8">
+                    <h3 class="text-3xl font-bold text-gray-800">سجل الآن</h3>
+                    <button onclick="closeModal()" class="text-gray-500 hover:text-gray-700 transition-colors duration-300">
+                        <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                        </svg>
+                    </button>
+                </div>
                 
-                const targetId = this.getAttribute('href');
-                if (targetId === '#') return;
-                
-                const targetElement = document.querySelector(targetId);
-                if (targetElement) {
-                    // Close mobile menu if open
-                    document.getElementById('mobile-menu').classList.add('hidden');
+                <form id="registration-form" class="space-y-6">
+                    <div>
+                        <label class="block text-sm font-bold text-gray-700 mb-3">الاسم الكامل</label>
+                        <input type="text" required class="w-full px-4 py-4 border-2 border-gray-200 rounded-2xl focus:ring-4 focus:ring-primary-100 focus:border-primary-500 transition-all duration-300 text-lg">
+                    </div>
                     
-                    window.scrollTo({
-                        top: targetElement.offsetTop - 80,
-                        behavior: 'smooth'
-                    });
-                }
-            });
-        });
+                    <div>
+                        <label class="block text-sm font-bold text-gray-700 mb-3">البريد الإلكتروني</label>
+                        <input type="email" required class="w-full px-4 py-4 border-2 border-gray-200 rounded-2xl focus:ring-4 focus:ring-primary-100 focus:border-primary-500 transition-all duration-300 text-lg">
+                    </div>
+                    
+                    <div>
+                        <label class="block text-sm font-bold text-gray-700 mb-3">رقم الهاتف</label>
+                        <input type="tel" required class="w-full px-4 py-4 border-2 border-gray-200 rounded-2xl focus:ring-4 focus:ring-primary-100 focus:border-primary-500 transition-all duration-300 text-lg">
+                    </div>
+                    
+                    <div>
+                        <label class="block text-sm font-bold text-gray-700 mb-3">اختر الدورة</label>
+                        <select id="course-select" required class="w-full px-4 py-4 border-2 border-gray-200 rounded-2xl focus:ring-4 focus:ring-primary-100 focus:border-primary-500 transition-all duration-300 text-lg">
+                            <option value="">اختر الدورة المناسبة</option>
+                            <option value="دعم اللغة">دعم اللغة</option>
+                            <option value="السوروبان">السوروبان</option>
+                            <option value="تحسين الخط">تحسين الخط</option>
+                            <option value="دورات الصيدلة">دورات الصيدلة</option>
+                            <option value="مهارات الحاسوب">مهارات الحاسوب</option>
+                            <option value="اللغة الإنجليزية">اللغة الإنجليزية</option>
+                            <option value="الرياضيات المتقدمة">الرياضيات المتقدمة</option>
+                            <option value="الفنون والإبداع">الفنون والإبداع</option>
+                        </select>
+                    </div>
+                    
+                    <button type="submit" class="w-full btn-premium text-white py-4 rounded-2xl text-lg font-bold shadow-2xl">
+                        إرسال الطلب
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
 
-        // Scroll to top button
-        window.addEventListener('scroll', function() {
-            const scrollTop = document.getElementById('scroll-top');
-            if (window.pageYOffset > 300) {
-                scrollTop.style.display = 'flex';
-            } else {
-                scrollTop.style.display = 'none';
-            }
-        });
-
-        // Animation on scroll
-        function animateOnScroll() {
-            const elements = document.querySelectorAll('.course-card, .stat-card, .feature-item, .testimonial-card');
-            
-            elements.forEach(element => {
-                const position = element.getBoundingClientRect();
-                
-                // If element is in viewport
-                if(position.top < window.innerHeight - 100 && position.bottom >= 0) {
-                    element.classList.add('animate-slide-up');
-                }
-            });
-        }
-
-        // Run animation on scroll
-        window.addEventListener('scroll', animateOnScroll);
-        // Run once on load
-        window.addEventListener('load', animateOnScroll);
-    </script>
+    <script src="script.js"></script>
 </body>
-
 </html>
