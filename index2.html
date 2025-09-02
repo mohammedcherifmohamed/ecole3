@@ -1,0 +1,836 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>smart learning hub - مركز التميز التعليمي</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;500;700;800;900&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: {
+                            50: '#f0f9ff',
+                            100: '#e0f2fe',
+                            500: '#0ea5e9',
+                            600: '#0284c7',
+                            700: '#0369a1',
+                            800: '#075985',
+                            900: '#0c4a6e',
+                        },
+                        secondary: {
+                            50: '#f0fdf4',
+                            100: '#dcfce7',
+                            500: '#22c55e',
+                            600: '#16a34a',
+                            700: '#15803d',
+                            800: '#166534',
+                            900: '#14532d',
+                        },
+                        accent: {
+                            50: '#fffbeb',
+                            100: '#fef3c7',
+                            500: '#f59e0b',
+                            600: '#d97706',
+                            700: '#b45309',
+                            800: '#92400e',
+                            900: '#78350f',
+                        },
+                        dark: '#1e293b',
+                        light: '#f8fafc'
+                    },
+                    fontFamily: {
+                        'tajawal': ['Tajawal', 'sans-serif']
+                    },
+                    animation: {
+                        'fade-in': 'fadeIn 0.6s ease-out',
+                        'slide-up': 'slideUp 0.7s ease-out',
+                        'slide-down': 'slideDown 0.7s ease-out',
+                        'bounce-slow': 'bounce 3s infinite',
+                        'pulse-slow': 'pulse 4s infinite',
+                        'float': 'float 6s ease-in-out infinite'
+                    },
+                    keyframes: {
+                        fadeIn: {
+                            '0%': { opacity: '0' },
+                            '100%': { opacity: '1' }
+                        },
+                        slideUp: {
+                            '0%': { transform: 'translateY(20px)', opacity: '0' },
+                            '100%': { transform: 'translateY(0)', opacity: '1' }
+                        },
+                        slideDown: {
+                            '0%': { transform: 'translateY(-20px)', opacity: '0' },
+                            '100%': { transform: 'translateY(0)', opacity: '1' }
+                        },
+                        float: {
+                            '0%, 100%': { transform: 'translateY(0)' },
+                            '50%': { transform: 'translateY(-10px)' }
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            font-family: 'Tajawal', sans-serif;
+            transition: all 0.3s ease;
+            scroll-behavior: smooth;
+        }
+        .hero-pattern {
+            background: linear-gradient(135deg, rgba(14, 165, 233, 0.85) 0%, rgba(34, 197, 94, 0.85) 100%), url('https://images.unsplash.com/photo-1523050854058-8df90110c9f1?ixlib=rb-4.0.3&auto=format&fit=crop&w=1600&q=80');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+        }
+        .course-card {
+            transition: all 0.4s ease;
+            overflow: hidden;
+        }
+        .course-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        }
+        .course-image {
+            transition: transform 0.5s ease;
+        }
+        .course-card:hover .course-image {
+            transform: scale(1.05);
+        }
+        .modal {
+            transition: all 0.3s ease;
+        }
+        .floating-element {
+            animation: float 6s ease-in-out infinite;
+        }
+        .stat-card {
+            transition: all 0.3s ease;
+        }
+        .stat-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+        }
+        .gradient-text {
+            background: linear-gradient(135deg, #0ea5e9 0%, #22c55e 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .section-divider {
+            height: 1px;
+            background: linear-gradient(90deg, transparent 0%, #0ea5e9 50%, transparent 100%);
+        }
+        .testimonial-card {
+            transition: all 0.3s ease;
+        }
+        .testimonial-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+        }
+        .navbar-shadow {
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+        }
+        .btn-primary {
+            background: linear-gradient(135deg, #0ea5e9 0%, #22c55e 100%);
+            transition: all 0.3s ease;
+        }
+        .btn-primary:hover {
+            background: linear-gradient(135deg, #0284c7 0%, #16a34a 100%);
+            transform: translateY(-2px);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+        }
+        .btn-accent {
+            background: linear-gradient(135deg, #f59e0b 0%, #ec4899 100%);
+            transition: all 0.3s ease;
+        }
+        .btn-accent:hover {
+            background: linear-gradient(135deg, #d97706 0%, #db2777 100%);
+            transform: translateY(-2px);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+        }
+        .feature-icon {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 70px;
+            height: 70px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #0ea5e9 0%, #22c55e 100%);
+            margin-bottom: 1rem;
+            transition: all 0.3s ease;
+        }
+        .feature-item:hover .feature-icon {
+            transform: scale(1.1) rotate(5deg);
+        }
+        ::selection {
+            background-color: rgba(14, 165, 233, 0.3);
+        }
+        .scroll-top {
+            display: none;
+            position: fixed;
+            bottom: 2rem;
+            left: 2rem;
+            z-index: 1000;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #0ea5e9 0%, #22c55e 100%);
+            color: white;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+            transition: all 0.3s ease;
+        }
+        .scroll-top:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
+        }
+    </style>
+</head>
+<body class="bg-light text-dark font-tajawal">
+    <!-- Scroll to top button -->
+    <a href="#" class="scroll-top" id="scroll-top">
+        <i class="fas fa-arrow-up text-xl"></i>
+    </a>
+
+    <!-- Header -->
+    <header class="bg-white fixed w-full z-50 navbar-shadow">
+        <div class="container mx-auto px-4 py-3 flex justify-between items-center">
+            <div class="flex items-center">
+                <div class="h-12 w-12 rounded-lg bg-gradient-to-br from-primary-500 to-secondary-500 flex items-center justify-center text-white font-bold text-xl shadow-md">
+                    <i class="fas fa-graduation-cap"></i>
+                </div>
+                <span class="mr-3 text-xl font-black text-primary-800">smart learning hub</span>
+            </div>
+            
+            <nav class="hidden lg:flex space-x-8 space-x-reverse">
+                <a href="#" class="text-primary-700 font-medium hover:text-primary-500 transition relative py-2 group">
+                    الرئيسية
+                    <span class="absolute bottom-0 right-0 w-0 h-0.5 bg-primary-500 transition-all group-hover:w-full"></span>
+                </a>
+                <a href="#courses" class="text-dark font-medium hover:text-primary-500 transition relative py-2 group">
+                    الدورات
+                    <span class="absolute bottom-0 right-0 w-0 h-0.5 bg-primary-500 transition-all group-hover:w-full"></span>
+                </a>
+                <a href="#about" class="text-dark font-medium hover:text-primary-500 transition relative py-2 group">
+                    عن المدرسة
+                    <span class="absolute bottom-0 right-0 w-0 h-0.5 bg-primary-500 transition-all group-hover:w-full"></span>
+                </a>
+                <a href="#testimonials" class="text-dark font-medium hover:text-primary-500 transition relative py-2 group">
+                    آراء العملاء
+                    <span class="absolute bottom-0 right-0 w-0 h-0.5 bg-primary-500 transition-all group-hover:w-full"></span>
+                </a>
+                <a href="#contact" class="text-dark font-medium hover:text-primary-500 transition relative py-2 group">
+                    اتصل بنا
+                    <span class="absolute bottom-0 right-0 w-0 h-0.5 bg-primary-500 transition-all group-hover:w-full"></span>
+                </a>
+            </nav>
+            
+            <div class="flex items-center space-x-4 space-x-reverse">
+                <button class="lg:hidden text-primary-700" id="mobile-menu-button">
+                    <i class="fas fa-bars text-2xl"></i>
+                </button>
+                <button class="hidden md:flex items-center bg-primary-500 hover:bg-primary-600 text-white font-medium py-2 px-5 rounded-lg transition transform hover:scale-105 shadow-md" id="header-register-btn">
+                    <i class="fas fa-user-plus ml-2"></i>
+                    سجل الآن
+                </button>
+            </div>
+        </div>
+        
+        <!-- Mobile Menu -->
+        <div class="hidden lg:hidden bg-white py-4 px-4 border-t border-gray-100" id="mobile-menu">
+            <a href="#" class="block py-3 px-4 hover:bg-primary-50 rounded-lg transition text-primary-700 font-medium">
+                <i class="fas fa-home ml-2 text-primary-500"></i>
+                الرئيسية
+            </a>
+            <a href="#courses" class="block py-3 px-4 hover:bg-primary-50 rounded-lg transition text-dark font-medium">
+                <i class="fas fa-book ml-2 text-primary-500"></i>
+                الدورات
+            </a>
+            <a href="#about" class="block py-3 px-4 hover:bg-primary-50 rounded-lg transition text-dark font-medium">
+                <i class="fas fa-info-circle ml-2 text-primary-500"></i>
+                عن المدرسة
+            </a>
+            <a href="#testimonials" class="block py-3 px-4 hover:bg-primary-50 rounded-lg transition text-dark font-medium">
+                <i class="fas fa-comments ml-2 text-primary-500"></i>
+                آراء العملاء
+            </a>
+            <a href="#contact" class="block py-3 px-4 hover:bg-primary-50 rounded-lg transition text-dark font-medium">
+                <i class="fas fa-phone ml-2 text-primary-500"></i>
+                اتصل بنا
+            </a>
+            <div class="mt-4 pt-4 border-t border-gray-100">
+                <button class="w-full flex items-center justify-center bg-primary-500 hover:bg-primary-600 text-white font-medium py-2 px-5 rounded-lg transition shadow-md" id="mobile-register-btn">
+                    <i class="fas fa-user-plus ml-2"></i>
+                    سجل الآن
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero-pattern pt-32 pb-24 text-white">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-col md:flex-row items-center">
+                <div class="md:w-1/2 mb-10 md:mb-0 animate-slide-up">
+                    <h1 class="text-4xl md:text-5xl lg:text-6xl font-black mb-6 leading-tight">
+                        مستقبل مشرق begins with <span class="text-accent-500">تعليم متميز</span>
+                    </h1>
+                    <p class="text-xl md:text-2xl mb-8 opacity-95">
+                        نقدم أفضل البرامج التعليمية لتطوير مهارات الطلاب من جميع الأعمار في مختلف المجالات الأكاديمية والتربوية.
+                    </p>
+                    <div class="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4 sm:space-x-reverse">
+                        <button class="btn-primary py-4 px-8 rounded-lg text-lg font-bold shadow-lg" id="hero-register-btn">
+                            ابدأ رحلتك التعليمية الآن
+                        </button>
+                        <button class="bg-white bg-opacity-20 hover:bg-opacity-30 text-white py-4 px-8 rounded-lg text-lg font-bold transition shadow-lg border border-white border-opacity-30">
+                            <i class="fas fa-play-circle ml-2"></i>
+                            شاهد الفيديو
+                        </button>
+                    </div>
+                </div>
+                <div class="md:w-1/2 flex justify-center animate-float">
+                    <div class="relative">
+                        <div class="absolute -top-6 -right-6 w-32 h-32 bg-accent-500 rounded-full opacity-20"></div>
+                        <div class="absolute -bottom-6 -left-6 w-28 h-28 bg-primary-500 rounded-full opacity-20"></div>
+                        <img src="https://images.unsplash.com/photo-1523240795612-9a054b0db644?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="طلاب يدرسون" class="relative z-10 rounded-2xl shadow-2xl w-full max-w-md">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section class="py-12 bg-gradient-to-r from-primary-50 to-secondary-50">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
+                <div class="stat-card bg-white rounded-xl p-6 text-center shadow-md">
+                    <div class="text-4xl font-black text-primary-600 mb-2">+500</div>
+                    <div class="text-dark font-medium">طالب مسجل</div>
+                </div>
+                <div class="stat-card bg-white rounded-xl p-6 text-center shadow-md">
+                    <div class="text-4xl font-black text-primary-600 mb-2">+20</div>
+                    <div class="text-dark font-medium">مدرب محترف</div>
+                </div>
+                <div class="stat-card bg-white rounded-xl p-6 text-center shadow-md">
+                    <div class="text-4xl font-black text-primary-600 mb-2">+15</div>
+                    <div class="text-dark font-medium">برنامج تعليمي</div>
+                </div>
+                <div class="stat-card bg-white rounded-xl p-6 text-center shadow-md">
+                    <div class="text-4xl font-black text-primary-600 mb-2">+95%</div>
+                    <div class="text-dark font-medium">رضا العملاء</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Courses Section -->
+    <section id="courses" class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <h2 class="text-3xl md:text-4xl font-black mb-6 text-dark">برامجنا <span class="gradient-text">التعليمية</span></h2>
+                <p class="text-lg text-gray-600">نقدم مجموعة متنوعة من البرامج التعليمية المصممة خصيصًا لتلبية احتياجات الطلاب بمختلف أعمارهم وقدراتهم.</p>
+                <div class="section-divider mt-8"></div>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Language Course -->
+                <div class="course-card bg-white rounded-2xl shadow-lg overflow-hidden border border-gray-100">
+                    <div class="overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1576086213369-97a306d36557?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="دورات اللغة" class="w-full h-48 object-cover course-image">
+                    </div>
+                    <div class="p-6">
+                        <div class="flex items-center mb-4">
+                            <div class="bg-primary-100 text-primary-700 py-1 px-3 rounded-full text-sm font-medium">
+                                <i class="fas fa-language ml-2"></i>
+                                لغة
+                            </div>
+                            <div class="mr-auto text-accent-600 font-bold">
+                                250 DA
+                            </div>
+                        </div>
+                        <h3 class="text-xl font-black mb-3 text-dark">دورات اللغة</h3>
+                        <p class="text-gray-600 mb-4">برامج متكاملة لتعزيز مهارات اللغة العربية والإنجليزية للطلاب من جميع الأعمار بمحتوى تفاعلي وشيق.</p>
+                        <div class="flex justify-between items-center">
+                            <button class="course-register-btn btn-primary py-2 px-5 rounded-lg text-white font-medium text-sm">
+                                سجل الآن
+                            </button>
+                            <div class="flex items-center text-yellow-400">
+                                <i class="fas fa-star"></i>
+                                <span class="mr-1 text-gray-600 font-medium">4.9</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Soroban Course -->
+                <div class="course-card bg-white rounded-2xl shadow-lg overflow-hidden border border-gray-100">
+                    <div class="overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1596495578066-467a432a1d84?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="السوروبان" class="w-full h-48 object-cover course-image">
+                    </div>
+                    <div class="p-6">
+                        <div class="flex items-center mb-4">
+                            <div class="bg-secondary-100 text-secondary-700 py-1 px-3 rounded-full text-sm font-medium">
+                                <i class="fas fa-calculator ml-2"></i>
+                                حساب
+                            </div>
+                            <div class="mr-auto text-accent-600 font-bold">
+                                300 DA
+                            </div>
+                        </div>
+                        <h3 class="text-xl font-black mb-3 text-dark">السوروبان</h3>
+                        <p class="text-gray-600 mb-4">تطوير مهارات الحساب الذهني وتعزيز التركيز والذاكرة لدى الأطفال باستخدام العداد الياباني (سوروبان).</p>
+                        <div class="flex justify-between items-center">
+                            <button class="course-register-btn btn-primary py-2 px-5 rounded-lg text-white font-medium text-sm">
+                                سجل الآن
+                            </button>
+                            <div class="flex items-center text-yellow-400">
+                                <i class="fas fa-star"></i>
+                                <span class="mr-1 text-gray-600 font-medium">4.8</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Handwriting Course -->
+                <div class="course-card bg-white rounded-2xl shadow-lg overflow-hidden border border-gray-100">
+                    <div class="overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1585837140746-5d5d615e3281?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="تحسين الخط" class="w-full h-48 object-cover course-image">
+                    </div>
+                    <div class="p-6">
+                        <div class="flex items-center mb-4">
+                            <div class="bg-accent-100 text-accent-700 py-1 px-3 rounded-full text-sm font-medium">
+                                <i class="fas fa-pen-nib ml-2"></i>
+                                خط
+                            </div>
+                            <div class="mr-auto text-accent-600 font-bold">
+                                200 DA
+                            </div>
+                        </div>
+                        <h3 class="text-xl font-black mb-3 text-dark">تحسين الخط</h3>
+                        <p class="text-gray-600 mb-4">دورات متخصصة لتحسين خط اليد للطلاب باستخدام أحدث الأساليب التعليمية مع معلمين متخصصين.</p>
+                        <div class="flex justify-between items-center">
+                            <button class="course-register-btn btn-primary py-2 px-5 rounded-lg text-white font-medium text-sm">
+                                سجل الآن
+                            </button>
+                            <div class="flex items-center text-yellow-400">
+                                <i class="fas fa-star"></i>
+                                <span class="mr-1 text-gray-600 font-medium">4.7</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="text-center mt-12">
+                <button class="bg-gray-100 hover:bg-gray-200 text-dark font-medium py-3 px-8 rounded-lg transition">
+                    عرض جميع الدورات
+                    <i class="fas fa-arrow-left ml-2"></i>
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="py-16 bg-gradient-to-br from-primary-50 to-secondary-50">
+        <div class="container mx-auto px-4">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <h2 class="text-3xl md:text-4xl font-black mb-6 text-dark">لماذا تختار <span class="gradient-text">مدرستنا؟</span></h2>
+                <p class="text-lg text-gray-600">نتميز بتقديم تجربة تعليمية فريدة تجمع بين الأصالة والابتكار لضمان تحقيق أفضل النتائج.</p>
+                <div class="section-divider mt-8"></div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="feature-item bg-white rounded-2xl p-6 shadow-md text-center">
+                    <div class="feature-icon mx-auto">
+                        <i class="fas fa-user-tie text-2xl text-white"></i>
+                    </div>
+                    <h3 class="text-xl font-black mb-3 text-dark">مدربون معتمدون</h3>
+                    <p class="text-gray-600">فريقنا من المدربين المؤهلين ذوي الخبرة الواسعة في مجالات تخصصهم.</p>
+                </div>
+
+                <div class="feature-item bg-white rounded-2xl p-6 shadow-md text-center">
+                    <div class="feature-icon mx-auto">
+                        <i class="fas fa-book-open text-2xl text-white"></i>
+                    </div>
+                    <h3 class="text-xl font-black mb-3 text-dark">مناهج متطورة</h3>
+                    <p class="text-gray-600">مناهج مصممة وفق أحدث الأساليب التعليمية والتقنيات التربوية.</p>
+                </div>
+
+                <div class="feature-item bg-white rounded-2xl p-6 shadow-md text-center">
+                    <div class="feature-icon mx-auto">
+                        <i class="fas fa-chalkboard text-2xl text-white"></i>
+                    </div>
+                    <h3 class="text-xl font-black mb-3 text-dark">فصول تفاعلية</h3>
+                    <p class="text-gray-600">فصول دراسية مجهزة بأحدث التقنيات لتعزيز تجربة التعلم.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-col lg:flex-row items-center">
+                <div class="lg:w-1/2 mb-10 lg:mb-0 lg:pr-10">
+                    <h2 class="text-3xl md:text-4xl font-black mb-6 text-dark">عن <span class="gradient-text">smart learning hub</span></h2>
+                    <p class="text-lg text-gray-700 mb-6">
+                        تأسست smart learning hub في عام 2024بهدف تقديم تعليم متميز يجمع بين الأصالة والابتكار. نحن نؤمن بأن كل طالب لديه قدرات فريدة تحتاج إلى الرعاية والاهتمام المناسبين.
+                    </p>
+                    <p class="text-lg text-gray-700 mb-8">
+                        مهمتنا هي توفير بيئة تعليمية محفزة تدعم النمو الشامل للطلاب وتطور مهاراتهم الأكاديمية والشخصية، مع التركيز على القيم الأخلاقية والمواطنة الصالحة.
+                    </p>
+                    <div class="flex space-x-4 space-x-reverse">
+                        <button class="btn-primary py-3 px-6 rounded-lg font-medium">
+                            رؤيتنا ورسالتنا
+                        </button>
+                        <button class="bg-gray-100 hover:bg-gray-200 text-dark py-3 px-6 rounded-lg font-medium transition">
+                            <i class="fas fa-download ml-2"></i>
+                            تحميل البروشور
+                        </button>
+                    </div>
+                </div>
+                <div class="lg:w-1/2">
+                    <div class="grid grid-cols-2 gap-4">
+                        <img src="https://images.unsplash.com/photo-1523240795612-9a054b0db644?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="فصل دراسي" class="rounded-2xl shadow-md w-full h-64 object-cover">
+                        <img src="https://images.unsplash.com/photo-1524178232409-7c3f72b7eb6f?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="معلم وطلاب" class="rounded-2xl shadow-md w-full h-64 object-cover mt-8">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section id="testimonials" class="py-16 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <h2 class="text-3xl md:text-4xl font-black mb-6 text-dark">آراء <span class="gradient-text">عملائنا</span></h2>
+                <p class="text-lg text-gray-600">انطباعات أولياء الأمور والطلاب عن تجربتهم مع برامجنا التعليمية.</p>
+                <div class="section-divider mt-8"></div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="testimonial-card bg-white rounded-2xl p-6 shadow-md">
+                    <div class="flex items-center mb-4">
+                        <div class="w-14 h-14 rounded-full overflow-hidden">
+                            <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?ixlib=rb-4.0.3&auto=format&fit=crop&w=100&q=80" alt="وليّ أمر" class="w-full h-full object-cover">
+                        </div>
+                        <div class="mr-3">
+                            <h4 class="font-black text-dark">أحمد  </h4>
+                            <p class="text-sm text-primary-600">وليّ أمر طالب</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-600 mb-4">
+                        تحسن مستوى ابني في مادة الرياضيات بشكل ملحوظ بعد انتظامه في دورات السوروبان. شكراً لفريق المعلمين المتميز.
+                    </p>
+                    <div class="flex text-yellow-400">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                </div>
+                <div class="testimonial-card bg-white rounded-2xl p-6 shadow-md">
+                    <div class="flex items-center mb-4">
+                        <div class="w-14 h-14 rounded-full overflow-hidden">
+                            <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?ixlib=rb-4.0.3&auto=format&fit=crop&w=100&q=80" alt="وليّ أمر" class="w-full h-full object-cover">
+                        </div>
+                        <div class="mr-3">
+                            <h4 class="font-black text-dark">أحمد  </h4>
+                            <p class="text-sm text-primary-600">وليّ أمر طالب</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-600 mb-4">
+                        تحسن مستوى ابني في مادة الرياضيات بشكل ملحوظ بعد انتظامه في دورات السوروبان. شكراً لفريق المعلمين المتميز.
+                    </p>
+                    <div class="flex text-yellow-400">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                </div>
+                <div class="testimonial-card bg-white rounded-2xl p-6 shadow-md">
+                    <div class="flex items-center mb-4">
+                        <div class="w-14 h-14 rounded-full overflow-hidden">
+                            <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?ixlib=rb-4.0.3&auto=format&fit=crop&w=100&q=80" alt="وليّ أمر" class="w-full h-full object-cover">
+                        </div>
+                        <div class="mr-3">
+                            <h4 class="font-black text-dark">أحمد  </h4>
+                            <p class="text-sm text-primary-600">وليّ أمر طالب</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-600 mb-4">
+                        تحسن مستوى ابني في مادة الرياضيات بشكل ملحوظ بعد انتظامه في دورات السوروبان. شكراً لفريق المعلمين المتميز.
+                    </p>
+                    <div class="flex text-yellow-400">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                </div>
+
+         
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="py-16 bg-primary-800">
+        <div class="container mx-auto px-4 text-center">
+            <h2 class="text-3xl md:text-4xl font-black mb-6 text-white">ابدأ رحلة التعلم اليوم</h2>
+            <p class="text-xl text-primary-100 mb-10 max-w-3xl mx-auto">
+                انضم إلى عائلة smart learning hub واستفد من برامجنا التعليمية المتطورة لتحقيق أقصى استفادة من قدراتك أو قدرات أبنائك.
+            </p>
+            <button class="btn-accent py-4 px-10 rounded-lg text-lg font-bold shadow-lg" id="cta-register-btn">
+                سجل الآن مجاناً
+            </button>
+        </div>
+    </section>
+
+    <!-- Registration Modal -->
+    <div class="fixed inset-0 bg-black bg-opacity-60 flex items-center justify-center z-50 hidden modal" id="registration-modal">
+        <div class="bg-white rounded-2xl shadow-2xl w-11/12 md:w-3/4 lg:w-1/2 max-w-2xl p-6 relative">
+            <button class="absolute left-4 top-4 text-gray-500 hover:text-gray-700" id="close-modal">
+                <i class="fas fa-times text-xl"></i>
+            </button>
+            
+            <div class="text-center mb-6">
+                <h2 class="text-2xl font-black text-primary-800">نموذج التسجيل</h2>
+                <p class="text-gray-600">املأ النموذج أدناه وسنقوم بالاتصال بك لتأكيد التسجيل</p>
+            </div>
+            
+            <form class="space-y-4">
+                <div>
+                    <label for="name" class="block text-gray-700 mb-2 font-medium">الاسم الكامل</label>
+                    <input type="text" id="name" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent">
+                </div>
+                
+                <div>
+                    <label for="email" class="block text-gray-700 mb-2 font-medium">البريد الإلكتروني</label>
+                    <input type="email" id="email" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent">
+                </div>
+                
+                <div>
+                    <label for="phone" class="block text-gray-700 mb-2 font-medium">رقم الهاتف</label>
+                    <input type="tel" id="phone" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent">
+                </div>
+                
+                <div>
+                    <label for="course" class="block text-gray-700 mb-2 font-medium">اختر الدورة</label>
+                    <select id="course" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent">
+                        <option value="">-- اختر الدورة --</option>
+                        <option value="language">دورات اللغة</option>
+                        <option value="soroban">السوروبان</option>
+                        <option value="handwriting">تحسين الخط</option>
+                        <option value="pharmacy">دورات الصيدلة</option>
+                        <option value="programming">برمجة الأطفال</option>
+                        <option value="art">التربية الفنية</option>
+                    </select>
+                </div>
+                
+                <button type="submit" class="w-full btn-primary py-3 px-4 rounded-lg font-bold text-lg transition transform hover:scale-105">
+                    إرسال الطلب
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer id="contact" class="bg-dark text-white pt-16 pb-8">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <div>
+                    <div class="h-14 w-14 rounded-lg bg-gradient-to-br from-primary-500 to-secondary-500 flex items-center justify-center text-white font-bold text-xl shadow-md mb-6">
+                        <i class="fas fa-graduation-cap"></i>
+                    </div>
+                    <h3 class="text-xl font-black mb-4">smart learning hub</h3>
+                    <p class="mb-6 text-gray-300">نقدم برامج تعليمية متميزة للأطفال والكبار في مختلف المجالات الأكاديمية والمهنية.</p>
+                    <div class="flex space-x-4 space-x-reverse">
+                        <a href="#" class="bg-primary-700 hover:bg-primary-600 w-10 h-10 rounded-full flex items-center justify-center transition">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="#" class="bg-primary-700 hover:bg-primary-600 w-10 h-10 rounded-full flex items-center justify-center transition">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                        <a href="#" class="bg-primary-700 hover:bg-primary-600 w-10 h-10 rounded-full flex items-center justify-center transition">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="#" class="bg-primary-700 hover:bg-primary-600 w-10 h-10 rounded-full flex items-center justify-center transition">
+                            <i class="fab fa-youtube"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <div>
+                    <h3 class="text-lg font-bold mb-6">روابط سريعة</h3>
+                    <ul class="space-y-3">
+                        <li><a href="#" class="text-gray-300 hover:text-white transition flex items-center">
+                            <i class="fas fa-arrow-left ml-2 text-xs"></i>
+                            الرئيسية
+                        </a></li>
+                        <li><a href="#courses" class="text-gray-300 hover:text-white transition flex items-center">
+                            <i class="fas fa-arrow-left ml-2 text-xs"></i>
+                            الدورات
+                        </a></li>
+                        <li><a href="#about" class="text-gray-300 hover:text-white transition flex items-center">
+                            <i class="fas fa-arrow-left ml-2 text-xs"></i>
+                            عن المدرسة
+                        </a></li>
+                        <li><a href="#testimonials" class="text-gray-300 hover:text-white transition flex items-center">
+                            <i class="fas fa-arrow-left ml-2 text-xs"></i>
+                            آراء العملاء
+                        </a></li>
+                        <li><a href="#contact" class="text-gray-300 hover:text-white transition flex items-center">
+                            <i class="fas fa-arrow-left ml-2 text-xs"></i>
+                            اتصل بنا
+                        </a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h3 class="text-lg font-bold mb-6">الدورات</h3>
+                    <ul class="space-y-3">
+                        <li><a href="#" class="text-gray-300 hover:text-white transition flex items-center">
+                            <i class="fas fa-arrow-left ml-2 text-xs"></i>
+                            دورات اللغة
+                        </a></li>
+                        <li><a href="#" class="text-gray-300 hover:text-white transition flex items-center">
+                            <i class="fas fa-arrow-left ml-2 text-xs"></i>
+                            السوروبان
+                        </a></li>
+                        <li><a href="#" class="text-gray-300 hover:text-white transition flex items-center">
+                            <i class="fas fa-arrow-left ml-2 text-xs"></i>
+                            تحسين الخط
+                        </a></li>
+                        <li><a href="#" class="text-gray-300 hover:text-white transition flex items-center">
+                            <i class="fas fa-arrow-left ml-2 text-xs"></i>
+                            دورات الصيدلة
+                        </a></li>
+                        <li><a href="#" class="text-gray-300 hover:text-white transition flex items-center">
+                            <i class="fas fa-arrow-left ml-2 text-xs"></i>
+                            برمجة الأطفال
+                        </a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h3 class="text-lg font-bold mb-6">معلومات التواصل</h3>
+                    <ul class="space-y-4">
+                        <li class="flex items-start">
+                            <i class="fas fa-map-marker-alt mt-1 ml-3 text-primary-500"></i>
+                            <span class="text-gray-300"> XXXX</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-phone mt-1 ml-3 text-primary-500"></i>
+                            <span class="text-gray-300" dir="ltr">+213 0666666</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-envelope mt-1 ml-3 text-primary-500"></i>
+                            <span class="text-gray-300">contact@smartlearning.com</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-clock mt-1 ml-3 text-primary-500"></i>
+                            <span class="text-gray-300">الأحد - الخميس: 8 ص - 8 م</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-700 mt-12 pt-8 text-center text-gray-400">
+                <p>© 2023 smart learning hub. جميع الحقوق محفوظة.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu toggle
+        document.getElementById('mobile-menu-button').addEventListener('click', function() {
+            const menu = document.getElementById('mobile-menu');
+            menu.classList.toggle('hidden');
+        });
+
+        // Registration modal
+        const registerButtons = document.querySelectorAll('#header-register-btn, #hero-register-btn, #cta-register-btn, #mobile-register-btn, .course-register-btn');
+        const modal = document.getElementById('registration-modal');
+        const closeModal = document.getElementById('close-modal');
+
+        registerButtons.forEach(button => {
+            button.addEventListener('click', function() {
+                modal.classList.remove('hidden');
+                document.body.style.overflow = 'hidden';
+            });
+        });
+
+        closeModal.addEventListener('click', function() {
+            modal.classList.add('hidden');
+            document.body.style.overflow = 'auto';
+        });
+
+        // Close modal when clicking outside
+        modal.addEventListener('click', function(e) {
+            if (e.target === modal) {
+                modal.classList.add('hidden');
+                document.body.style.overflow = 'auto';
+            }
+        });
+
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    // Close mobile menu if open
+                    document.getElementById('mobile-menu').classList.add('hidden');
+                    
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+
+        // Scroll to top button
+        window.addEventListener('scroll', function() {
+            const scrollTop = document.getElementById('scroll-top');
+            if (window.pageYOffset > 300) {
+                scrollTop.style.display = 'flex';
+            } else {
+                scrollTop.style.display = 'none';
+            }
+        });
+
+        // Animation on scroll
+        function animateOnScroll() {
+            const elements = document.querySelectorAll('.course-card, .stat-card, .feature-item, .testimonial-card');
+            
+            elements.forEach(element => {
+                const position = element.getBoundingClientRect();
+                
+                // If element is in viewport
+                if(position.top < window.innerHeight - 100 && position.bottom >= 0) {
+                    element.classList.add('animate-slide-up');
+                }
+            });
+        }
+
+        // Run animation on scroll
+        window.addEventListener('scroll', animateOnScroll);
+        // Run once on load
+        window.addEventListener('load', animateOnScroll);
+    </script>
+</body>
+</html>
